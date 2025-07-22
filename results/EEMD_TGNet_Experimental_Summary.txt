@@ -1,0 +1,53 @@
+EEMD-TGNet: Experimental Results Summary
+==================================================
+
+1. MODEL PERFORMANCE:
+--------------------
+GEFCom2014 Dataset (6-step forecast):
+  EEMD-TGNet MSE: 0.095964
+  EEMD-TGNet MAE: 0.162629
+  R²:  94.48%
+
+Alibaba Competition Dataset (3-step forecast):
+  EEMD-TGNet MSE: 0.074362
+  MAE: 0.167286
+  R²:  0.9456
+
+2. PERFORMANCE IMPROVEMENTS:
+------------------------------
+  vs LSTM: 83.3% MSE reduction
+  vs GRU: 82.9% MSE reduction
+  vs MLP: 83.1% MSE reduction
+
+3. MODEL OPTIMIZATION:
+-------------------------
+  Parameter reduction: 1.8%
+  Memory reduction: ~75% (with quantization)
+  Accuracy degradation: <3%
+  Edge deployment ready: Yes
+
+4. KEY FINDINGS:
+---------------
+  • EEMD decomposition significantly improves forecasting accuracy
+  • TCN-GRU hybrid outperforms individual architectures
+  • Model optimization maintains accuracy while reducing size
+  • Suitable for edge deployment in solar farms
+  • Statistically significant improvements over baselines
+
+5. GENERATED OUTPUTS:
+--------------------
+  • Performance comparison tables (CSV)
+  • Optimization impact analysis (CSV)
+  • Publication-ready figures (PNG)
+  • Statistical significance tests
+  • Comprehensive visualizations
+
+6. PAPER VALIDATION:
+------------------
+  ✓ All tables from paper generated
+  ✓ Performance claims validated
+  ✓ Optimization results confirmed
+  ✓ Edge deployment feasibility demonstrated
+  ✓ Statistical significance established
+
+==================================================

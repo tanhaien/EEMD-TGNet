@@ -1,0 +1,4 @@
+Model Version,Parameters,Memory (MB),MSE
+Original EEMD-TGNet,"63,750",0.24,0.580333
+Pruned EEMD-TGNet,"62,598",0.24,0.591939
+Pruned + Quantized,"62,598",0.06,0.597743
