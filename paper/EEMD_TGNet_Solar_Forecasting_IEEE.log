@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  23 JUL 2025 10:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  23 JUL 2025 10:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,39 +391,40 @@ Overfull \hbox (52.0221pt too wide) in paragraph at lines 292--299
  [][] 
  []
 
-<../results/advanced_performance_comparison.png, id=33, 1147.8885pt x 854.2314p
-t>
+<../results/advanced_performance_comparison.png, id=33, 1429.2597pt x 1132.23pt
+>
 File: ../results/advanced_performance_comparison.png Graphic file (type png)
 <use ../results/advanced_performance_comparison.png>
 Package pdftex.def Info: ../results/advanced_performance_comparison.png  used o
 n input line 337.
-(pdftex.def)             Requested size: 464.39685pt x 345.58383pt.
-<../results/model_category_analysis.png, id=34, 1292.4285pt x 428.3202pt>
+(pdftex.def)             Requested size: 516.0pt x 408.76001pt.
+<../results/model_category_analysis.png, id=34, 1718.0988pt x 566.115pt>
 File: ../results/model_category_analysis.png Graphic file (type png)
 <use ../results/model_category_analysis.png>
 Package pdftex.def Info: ../results/model_category_analysis.png  used on input 
-line 346.
-(pdftex.def)             Requested size: 247.6778pt x 82.081pt.
-<../results/improvement_analysis.png, id=35, 1292.1876pt x 428.802pt>
+line 344.
+(pdftex.def)             Requested size: 516.0pt x 170.01721pt.
+<../results/improvement_analysis.png, id=35, 1717.617pt x 706.8006pt>
 File: ../results/improvement_analysis.png Graphic file (type png)
 <use ../results/improvement_analysis.png>
 Package pdftex.def Info: ../results/improvement_analysis.png  used on input lin
-e 352.
-(pdftex.def)             Requested size: 247.6778pt x 82.1864pt.
-<../results/performance_scatter_matrix.png, id=36, 1292.1876pt x 853.9905pt>
+e 351.
+(pdftex.def)             Requested size: 516.0pt x 212.333pt.
+<../results/performance_scatter_matrix.png, id=36, 1719.0624pt x 1132.4709pt>
 File: ../results/performance_scatter_matrix.png Graphic file (type png)
 <use ../results/performance_scatter_matrix.png>
 Package pdftex.def Info: ../results/performance_scatter_matrix.png  used on inp
-ut line 362.
-(pdftex.def)             Requested size: 247.6778pt x 163.68024pt.
-<../results/model_ranking_heatmap.png, id=37, 946.737pt x 715.473pt>
+ut line 358.
+(pdftex.def)             Requested size: 516.0pt x 339.93398pt.
+<../results/model_ranking_heatmap.png, id=37, 1201.1274pt x 996.6033pt>
 File: ../results/model_ranking_heatmap.png Graphic file (type png)
 <use ../results/model_ranking_heatmap.png>
 Package pdftex.def Info: ../results/model_ranking_heatmap.png  used on input li
-ne 368.
-(pdftex.def)             Requested size: 247.6778pt x 187.17581pt.
+ne 365.
+(pdftex.def)             Requested size: 516.0pt x 428.1509pt.
 [6] [7 <../results/advanced_performance_comparison.png> <../results/model_categ
-ory_analysis.png> <../results/improvement_analysis.png>]
+ory_analysis.png>] [8 <../results/improvement_analysis.png> <../results/perform
+ance_scatter_matrix.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -435,23 +436,21 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8
-
- <../results/performance_scatter_matrix.png> <../results/model_ranking_heatmap.
-png>] (./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
+[9 <../results/model_ranking_heatmap.png>]
+(./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4297 strings out of 476106
- 69610 string characters out of 5793933
+ 4295 strings out of 476106
+ 69550 string characters out of 5793933
  1947975 words of memory out of 5000000
- 26264 multiletter control sequences out of 15000+600000
+ 26262 multiletter control sequences out of 15000+600000
  597934 words of font info for 111 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 57i,9n,65p,1497b,300s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,9n,65p,1497b,279s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
@@ -463,11 +462,11 @@ blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (8 pages, 2855219 bytes
+Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (9 pages, 3648276 bytes
 ).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

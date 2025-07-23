@@ -13,11 +13,11 @@ import seaborn as sns
 from matplotlib.patches import Rectangle
 import matplotlib.patches as mpatches
 
-# Set professional plotting parameters
-plt.rcParams['figure.figsize'] = (12, 8)
-plt.rcParams['font.size'] = 11
+# Set professional plotting parameters with larger sizes
+plt.rcParams['figure.figsize'] = (16, 10)
+plt.rcParams['font.size'] = 14
 plt.rcParams['font.family'] = 'serif'
-plt.rcParams['axes.linewidth'] = 1.2
+plt.rcParams['axes.linewidth'] = 1.5
 plt.rcParams['axes.spines.top'] = False
 plt.rcParams['axes.spines.right'] = False
 plt.rcParams['axes.grid'] = True
@@ -25,6 +25,10 @@ plt.rcParams['grid.alpha'] = 0.3
 plt.rcParams['legend.frameon'] = True
 plt.rcParams['legend.fancybox'] = True
 plt.rcParams['legend.shadow'] = True
+plt.rcParams['xtick.labelsize'] = 12
+plt.rcParams['ytick.labelsize'] = 12
+plt.rcParams['axes.titlesize'] = 16
+plt.rcParams['axes.labelsize'] = 14
 
 # IEEE standard colors (colorblind-friendly)
 IEEE_COLORS = {
@@ -105,9 +109,9 @@ class AdvancedFigureGenerator:
     
     def create_comprehensive_performance_comparison(self):
         """Create comprehensive performance comparison across all models"""
-        fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+        fig, axes = plt.subplots(2, 2, figsize=(20, 16))
         fig.suptitle('Comprehensive Model Performance Comparison Across All Datasets', 
-                    fontsize=16, fontweight='bold', y=0.98)
+                    fontsize=20, fontweight='bold', y=0.98)
         
         datasets = ['Udata', 'GEFCom2014', 'Chinese_Grid']
         metrics = ['MSE', 'MAE', 'R²', 'RMSE']
@@ -140,13 +144,14 @@ class AdvancedFigureGenerator:
                         bar.set_edgecolor('black')
                         bar.set_linewidth(2)
             
-            ax.set_xlabel('Models', fontweight='bold')
-            ax.set_ylabel(f'{metric}', fontweight='bold')
-            ax.set_title(f'{metric} Comparison', fontweight='bold')
+            ax.set_xlabel('Models', fontweight='bold', fontsize=16)
+            ax.set_ylabel(f'{metric}', fontweight='bold', fontsize=16)
+            ax.set_title(f'{metric} Comparison', fontweight='bold', fontsize=18)
             ax.set_xticks(x + width)
-            ax.set_xticklabels(list(model_data.keys()), rotation=45, ha='right')
-            ax.legend()
+            ax.set_xticklabels(list(model_data.keys()), rotation=45, ha='right', fontsize=10)
+            ax.legend(fontsize=14)
             ax.grid(True, alpha=0.3)
+            ax.tick_params(axis='both', which='major', labelsize=12)
         
         plt.tight_layout()
         plt.savefig(os.path.join(self.results_path, 'advanced_performance_comparison.png'), 
@@ -156,8 +161,8 @@ class AdvancedFigureGenerator:
     
     def create_model_category_analysis(self):
         """Create model category performance analysis"""
-        fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-        fig.suptitle('Model Category Performance Analysis', fontsize=16, fontweight='bold')
+        fig, axes = plt.subplots(1, 3, figsize=(24, 8))
+        fig.suptitle('Model Category Performance Analysis', fontsize=20, fontweight='bold')
         
         datasets = ['Udata', 'GEFCom2014', 'Chinese_Grid']
         
@@ -191,16 +196,17 @@ class AdvancedFigureGenerator:
                     bar.set_linewidth(3)
                     bar.set_alpha(1.0)
             
-            ax.set_title(f'{dataset} Dataset', fontweight='bold')
-            ax.set_ylabel('Average MSE', fontweight='bold')
-            ax.set_xticklabels(categories, rotation=45, ha='right')
+            ax.set_title(f'{dataset} Dataset', fontweight='bold', fontsize=18)
+            ax.set_ylabel('Average MSE', fontweight='bold', fontsize=16)
+            ax.set_xticklabels(categories, rotation=45, ha='right', fontsize=12)
             ax.grid(True, alpha=0.3)
+            ax.tick_params(axis='both', which='major', labelsize=14)
             
             # Add value labels on bars
             for bar, score in zip(bars, scores):
                 height = bar.get_height()
                 ax.text(bar.get_x() + bar.get_width()/2., height + 0.001,
-                       f'{score:.3f}', ha='center', va='bottom', fontweight='bold')
+                       f'{score:.3f}', ha='center', va='bottom', fontweight='bold', fontsize=12)
         
         plt.tight_layout()
         plt.savefig(os.path.join(self.results_path, 'model_category_analysis.png'), 
@@ -210,8 +216,8 @@ class AdvancedFigureGenerator:
     
     def create_scatter_performance_matrix(self):
         """Create scatter plot matrix showing model performance relationships"""
-        fig, axes = plt.subplots(2, 3, figsize=(18, 12))
-        fig.suptitle('Model Performance Scatter Matrix', fontsize=16, fontweight='bold')
+        fig, axes = plt.subplots(2, 3, figsize=(24, 16))
+        fig.suptitle('Model Performance Scatter Matrix', fontsize=20, fontweight='bold')
         
         datasets = ['Udata', 'GEFCom2014', 'Chinese_Grid']
         
@@ -260,19 +266,21 @@ class AdvancedFigureGenerator:
                                       s=200, facecolors='none',
                                       edgecolors='red', linewidth=3)
             
-            ax1.set_title(f'{dataset}: MSE vs R²', fontweight='bold')
-            ax1.set_xlabel('MSE')
-            ax1.set_ylabel('R² Score (%)')
+            ax1.set_title(f'{dataset}: MSE vs R²', fontweight='bold', fontsize=16)
+            ax1.set_xlabel('MSE', fontsize=14)
+            ax1.set_ylabel('R² Score (%)', fontsize=14)
             ax1.grid(True, alpha=0.3)
+            ax1.tick_params(axis='both', which='major', labelsize=12)
             
-            ax2.set_title(f'{dataset}: MAE vs RMSE', fontweight='bold')
-            ax2.set_xlabel('MAE')
-            ax2.set_ylabel('RMSE')
+            ax2.set_title(f'{dataset}: MAE vs RMSE', fontweight='bold', fontsize=16)
+            ax2.set_xlabel('MAE', fontsize=14)
+            ax2.set_ylabel('RMSE', fontsize=14)
             ax2.grid(True, alpha=0.3)
+            ax2.tick_params(axis='both', which='major', labelsize=12)
             
             if dataset_idx == 0:
-                ax1.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-                ax2.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+                ax1.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=12)
+                ax2.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=12)
         
         plt.tight_layout()
         plt.savefig(os.path.join(self.results_path, 'performance_scatter_matrix.png'), 
@@ -282,7 +290,7 @@ class AdvancedFigureGenerator:
     
     def create_model_ranking_heatmap(self):
         """Create comprehensive model ranking heatmap"""
-        fig, ax = plt.subplots(figsize=(14, 10))
+        fig, ax = plt.subplots(figsize=(18, 14))
         
         # Prepare data for heatmap
         datasets = ['Udata', 'GEFCom2014', 'Chinese_Grid']
@@ -337,15 +345,16 @@ class AdvancedFigureGenerator:
         
         # Customize plot
         ax.set_xticks(range(len(datasets)))
-        ax.set_xticklabels(datasets, fontweight='bold')
+        ax.set_xticklabels(datasets, fontweight='bold', fontsize=16)
         ax.set_yticks(range(len(all_models)))
-        ax.set_yticklabels(all_models)
+        ax.set_yticklabels(all_models, fontsize=12)
         ax.set_title('Model Performance Rankings Across Datasets\n(Lower rank = Better performance)', 
-                    fontsize=14, fontweight='bold', pad=20)
+                    fontsize=18, fontweight='bold', pad=20)
         
         # Add colorbar
         cbar = plt.colorbar(im, ax=ax, shrink=0.8)
-        cbar.set_label('Rank (1 = Best)', rotation=270, labelpad=20, fontweight='bold')
+        cbar.set_label('Rank (1 = Best)', rotation=270, labelpad=20, fontweight='bold', fontsize=14)
+        cbar.ax.tick_params(labelsize=12)
         
         plt.tight_layout()
         plt.savefig(os.path.join(self.results_path, 'model_ranking_heatmap.png'), 
@@ -355,8 +364,8 @@ class AdvancedFigureGenerator:
     
     def create_improvement_analysis(self):
         """Create improvement analysis over baseline models"""
-        fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-        fig.suptitle('Performance Improvement Over LSTM Baseline', fontsize=16, fontweight='bold')
+        fig, axes = plt.subplots(1, 3, figsize=(24, 10))
+        fig.suptitle('Performance Improvement Over LSTM Baseline', fontsize=20, fontweight='bold')
         
         datasets = ['Udata', 'GEFCom2014', 'Chinese_Grid']
         
@@ -397,16 +406,17 @@ class AdvancedFigureGenerator:
                     bars[i].set_alpha(1.0)
             
             ax.set_yticks(range(len(models)))
-            ax.set_yticklabels(models)
-            ax.set_xlabel('Improvement over LSTM (%)', fontweight='bold')
-            ax.set_title(f'{dataset} Dataset', fontweight='bold')
+            ax.set_yticklabels(models, fontsize=12)
+            ax.set_xlabel('Improvement over LSTM (%)', fontweight='bold', fontsize=16)
+            ax.set_title(f'{dataset} Dataset', fontweight='bold', fontsize=18)
             ax.grid(True, alpha=0.3, axis='x')
+            ax.tick_params(axis='both', which='major', labelsize=12)
             
             # Add value labels
             for i, (bar, improvement) in enumerate(zip(bars, improvements)):
                 width = bar.get_width()
                 ax.text(width + 0.5, bar.get_y() + bar.get_height()/2,
-                       f'{improvement:.1f}%', ha='left', va='center', fontweight='bold')
+                       f'{improvement:.1f}%', ha='left', va='center', fontweight='bold', fontsize=11)
         
         plt.tight_layout()
         plt.savefig(os.path.join(self.results_path, 'improvement_analysis.png'), 
