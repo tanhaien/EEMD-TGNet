@@ -214,29 +214,24 @@ The computational complexity analysis shows that our optimized model achieves si
 
 \begin{figure*}[htbp]
     \centering
-    \begin{minipage}{0.24\textwidth}
+    \includegraphics[width=0.9\textwidth]{../results/standard_performance_comparison.png}
+    \caption{Comprehensive performance comparison across all evaluation metrics. EEMD-TGNet (highlighted in green) demonstrates superior performance in all metrics.}
+    \label{fig:performance_comparison}
+\end{figure*}
+
+\begin{figure*}[htbp]
+    \centering
+    \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../results/subplot_1_mse_comparison.png}
-        \caption{MSE Comparison}
-        \label{fig:mse_comparison}
+        \includegraphics[width=\textwidth]{../results/standard_training_convergence.png}
+        \caption{Training convergence showing EEMD-TGNet achieves faster and more stable convergence}
+        \label{fig:training_convergence}
     \end{minipage}\hfill
-    \begin{minipage}{0.24\textwidth}
+    \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../results/subplot_2_r2_comparison.png}
-        \caption{R² Score Comparison}
-        \label{fig:r2_comparison}
-    \end{minipage}\hfill
-    \begin{minipage}{0.24\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../results/subplot_3_optimization_impact.png}
-        \caption{Optimization Impact}
-        \label{fig:optimization_impact}
-    \end{minipage}\hfill
-    \begin{minipage}{0.24\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../results/subplot_4_imf_performance.png}
-        \caption{IMF Performance}
-        \label{fig:imf_performance}
+        \includegraphics[width=\textwidth]{../results/standard_accuracy_efficiency.png}
+        \caption{Accuracy vs efficiency analysis demonstrating EEMD-TGNet's superior performance-efficiency balance}
+        \label{fig:accuracy_efficiency}
     \end{minipage}
 \end{figure*}
 
@@ -244,24 +239,17 @@ The computational complexity analysis shows that our optimized model achieves si
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../results/training_convergence.png}
-        \caption{Training convergence comparison showing faster convergence for EEMD-based models}
-        \label{fig:training_convergence}
+        \includegraphics[width=\textwidth]{../results/standard_performance_heatmap.png}
+        \caption{Multi-metric performance heatmap with normalized scores}
+        \label{fig:heatmap_comparison}
     \end{minipage}\hfill
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../results/accuracy_efficiency_scatter.png}
-        \caption{Accuracy vs efficiency trade-off with bubble size representing model complexity}
-        \label{fig:accuracy_efficiency_scatter}
+        \includegraphics[width=\textwidth]{../results/standard_optimization_impact.png}
+        \caption{Model optimization impact on efficiency and performance trade-offs}
+        \label{fig:optimization_impact}
     \end{minipage}
 \end{figure*}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\columnwidth]{../results/statistical_comparison.png}
-    \caption{Statistical performance distribution analysis showing the robustness of hybrid models compared to traditional approaches}
-    \label{fig:statistical_comparison}
-\end{figure}
 
 \section{Limitations and Future Work}
 While our EEMD-TGNet model demonstrates superior performance, several limitations should be acknowledged. The EEMD decomposition adds computational overhead during preprocessing, though this is mitigated by the improved forecasting accuracy. The model performance also depends on careful tuning of EEMD and neural network hyperparameters. Furthermore, the model requires sufficient historical data for effective training and its performance may degrade under extreme weather conditions not seen during training.
