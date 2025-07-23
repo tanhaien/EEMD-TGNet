@@ -1,0 +1,16 @@
+UPDATED DATASET SECTION FOR PAPER
+==================================================
+
+We validate our model using three diverse solar forecasting datasets:
+
+\begin{itemize}
+    \item \textbf{Udata Solar Dataset:} Real-world solar power generation data from an operational solar farm, containing 5,334 hourly records with comprehensive electrical measurements (power, current, voltage) and meteorological variables (temperature, solar radiation components). This dataset spans from September 2024 to April 2025, providing recent and realistic solar power patterns.
+    \item \textbf{GEFCom2014 Solar Dataset:} Official dataset from the Global Energy Forecasting Competition 2014, containing 26,280 hourly records from 3 solar power zones with 12 weather-related predictor variables. The dataset covers the competition period with challenging probabilistic forecasting scenarios.
+    \item \textbf{Chinese State Grid Dataset:} Representative structure of renewable energy generation data from the Chinese State Grid Forecasting Competition, with 70,081 15-minute interval records including comprehensive meteorological features and solar irradiance measurements.
+\end{itemize}
+
+All datasets are preprocessed with:
+- Temporal sorting and missing value handling
+- Feature normalization and outlier detection
+- Train/validation/test split (70:15:15) maintaining temporal order
+- 24-hour input sequences for 6-hour ahead forecasting

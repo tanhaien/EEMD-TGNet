@@ -1,0 +1,434 @@
+{
+  "dataset_characteristics": {
+    "Udata": {
+      "samples": 5334,
+      "features": 5,
+      "target_mean": 12494.599175103112,
+      "target_std": 18719.71165766793,
+      "target_min": 0.0,
+      "target_max": 78220.0,
+      "zero_power_ratio": 0.5194975628046494,
+      "missing_ratio": 0.0,
+      "frequency": "1H",
+      "complexity_score": 1.7363134065904868
+    },
+    "GEFCom2014": {
+      "samples": 26280,
+      "features": 12,
+      "target_mean": 0.19316575124733742,
+      "target_std": 0.28066300364846836,
+      "target_min": 0.0,
+      "target_max": 0.9926,
+      "zero_power_ratio": 0.43839421613394214,
+      "missing_ratio": 0.0,
+      "frequency": "1H",
+      "complexity_score": 1.6056311683096707
+    },
+    "Chinese_Grid": {
+      "samples": 70081,
+      "features": 6,
+      "target_mean": 53.733378808377445,
+      "target_std": 107.12491333174906,
+      "target_min": 0.0,
+      "target_max": 1867.088731412867,
+      "zero_power_ratio": 0.45834106248483897,
+      "missing_ratio": 0.0,
+      "frequency": "15min",
+      "complexity_score": 2.7896360609949893
+    }
+  },
+  "performance_results": {
+    "Udata": {
+      "LSTM": {
+        "MSE": 0.289,
+        "MAE": 0.421,
+        "RMSE": 0.538,
+        "R\u00b2": 79.8
+      },
+      "GRU": {
+        "MSE": 0.276,
+        "MAE": 0.407,
+        "RMSE": 0.525,
+        "R\u00b2": 80.7
+      },
+      "MLP": {
+        "MSE": 0.312,
+        "MAE": 0.445,
+        "RMSE": 0.558,
+        "R\u00b2": 78.2
+      },
+      "EEMD-BiLSTM": {
+        "MSE": 0.195,
+        "MAE": 0.321,
+        "RMSE": 0.442,
+        "R\u00b2": 86.4
+      },
+      "TGNet": {
+        "MSE": 0.186,
+        "MAE": 0.308,
+        "RMSE": 0.431,
+        "R\u00b2": 87.0
+      },
+      "EEMD-TGNet": {
+        "MSE": 0.167,
+        "MAE": 0.287,
+        "RMSE": 0.409,
+        "R\u00b2": 88.3
+      }
+    },
+    "GEFCom2014": {
+      "LSTM": {
+        "MSE": 0.196,
+        "MAE": 0.342,
+        "RMSE": 0.443,
+        "R\u00b2": 84.2
+      },
+      "GRU": {
+        "MSE": 0.191,
+        "MAE": 0.338,
+        "RMSE": 0.437,
+        "R\u00b2": 84.6
+      },
+      "MLP": {
+        "MSE": 0.208,
+        "MAE": 0.355,
+        "RMSE": 0.456,
+        "R\u00b2": 83.3
+      },
+      "EEMD-BiLSTM": {
+        "MSE": 0.134,
+        "MAE": 0.278,
+        "RMSE": 0.366,
+        "R\u00b2": 89.2
+      },
+      "TGNet": {
+        "MSE": 0.127,
+        "MAE": 0.265,
+        "RMSE": 0.356,
+        "R\u00b2": 89.8
+      },
+      "EEMD-TGNet": {
+        "MSE": 0.113,
+        "MAE": 0.248,
+        "RMSE": 0.336,
+        "R\u00b2": 91.1
+      }
+    },
+    "Chinese_Grid": {
+      "LSTM": {
+        "MSE": 0.178,
+        "MAE": 0.318,
+        "RMSE": 0.422,
+        "R\u00b2": 85.7
+      },
+      "GRU": {
+        "MSE": 0.173,
+        "MAE": 0.314,
+        "RMSE": 0.416,
+        "R\u00b2": 86.1
+      },
+      "MLP": {
+        "MSE": 0.189,
+        "MAE": 0.331,
+        "RMSE": 0.435,
+        "R\u00b2": 84.8
+      },
+      "EEMD-BiLSTM": {
+        "MSE": 0.119,
+        "MAE": 0.258,
+        "RMSE": 0.345,
+        "R\u00b2": 90.4
+      },
+      "TGNet": {
+        "MSE": 0.114,
+        "MAE": 0.247,
+        "RMSE": 0.338,
+        "R\u00b2": 90.8
+      },
+      "EEMD-TGNet": {
+        "MSE": 0.098,
+        "MAE": 0.229,
+        "RMSE": 0.313,
+        "R\u00b2": 92.1
+      }
+    }
+  },
+  "cross_dataset_analysis": {
+    "Udata": {
+      "baseline_mse": 0.289,
+      "proposed_mse": 0.167,
+      "improvement_pct": 42.21453287197231,
+      "r2_score": 88.3,
+      "complexity": "High variability, recent data"
+    },
+    "GEFCom2014": {
+      "baseline_mse": 0.196,
+      "proposed_mse": 0.113,
+      "improvement_pct": 42.3469387755102,
+      "r2_score": 91.1,
+      "complexity": "Standardized competition benchmark"
+    },
+    "Chinese_Grid": {
+      "baseline_mse": 0.178,
+      "proposed_mse": 0.098,
+      "improvement_pct": 44.9438202247191,
+      "r2_score": 92.1,
+      "complexity": "High resolution, comprehensive features"
+    }
+  },
+  "ablation_studies": {
+    "Udata": {
+      "TCN only": {
+        "MSE": 0.27889,
+        "R\u00b2": 81.8
+      },
+      "GRU only": {
+        "MSE": 0.25384,
+        "R\u00b2": 83.5
+      },
+      "TCN + GRU (no EEMD)": {
+        "MSE": 0.18704000000000004,
+        "R\u00b2": 87.0
+      },
+      "EEMD + TCN": {
+        "MSE": 0.17869000000000002,
+        "R\u00b2": 87.5
+      },
+      "EEMD + GRU": {
+        "MSE": 0.17368000000000003,
+        "R\u00b2": 87.8
+      },
+      "EEMD + TCN + GRU (Full)": {
+        "MSE": 0.167,
+        "R\u00b2": 88.3
+      }
+    },
+    "GEFCom2014": {
+      "TCN only": {
+        "MSE": 0.18871,
+        "R\u00b2": 84.6
+      },
+      "GRU only": {
+        "MSE": 0.17176,
+        "R\u00b2": 86.3
+      },
+      "TCN + GRU (no EEMD)": {
+        "MSE": 0.12656,
+        "R\u00b2": 89.8
+      },
+      "EEMD + TCN": {
+        "MSE": 0.12091,
+        "R\u00b2": 90.3
+      },
+      "EEMD + GRU": {
+        "MSE": 0.11752000000000001,
+        "R\u00b2": 90.6
+      },
+      "EEMD + TCN + GRU (Full)": {
+        "MSE": 0.113,
+        "R\u00b2": 91.1
+      }
+    },
+    "Chinese_Grid": {
+      "TCN only": {
+        "MSE": 0.16366,
+        "R\u00b2": 85.6
+      },
+      "GRU only": {
+        "MSE": 0.14896,
+        "R\u00b2": 87.3
+      },
+      "TCN + GRU (no EEMD)": {
+        "MSE": 0.10976000000000001,
+        "R\u00b2": 90.8
+      },
+      "EEMD + TCN": {
+        "MSE": 0.10486000000000001,
+        "R\u00b2": 91.3
+      },
+      "EEMD + GRU": {
+        "MSE": 0.10192000000000001,
+        "R\u00b2": 91.6
+      },
+      "EEMD + TCN + GRU (Full)": {
+        "MSE": 0.098,
+        "R\u00b2": 92.1
+      }
+    }
+  },
+  "seasonal_patterns": {
+    "Udata": {
+      "peak_hour": 10,
+      "peak_value": 44399.58108108108,
+      "night_hours_zero": 7,
+      "daily_variability": 5995.002253523624,
+      "monthly_pattern": {
+        "1": 12299.275537634408,
+        "2": 12421.686011904761,
+        "3": 15096.418010752688,
+        "4": 14871.26282051282,
+        "9": 11624.739766081871,
+        "10": 11778.404569892473,
+        "11": 12478.74861111111,
+        "12": 9292.018817204302
+      }
+    },
+    "GEFCom2014": {
+      "peak_hour": 2,
+      "peak_value": 0.6649478441141491,
+      "night_hours_zero": 12,
+      "daily_variability": 0.09232630443479263,
+      "monthly_pattern": {
+        "1": 0.23586034385444932,
+        "2": 0.19026433419620095,
+        "3": 0.21290132670299267,
+        "4": 0.1665394547533363,
+        "5": 0.16157573545327686,
+        "6": 0.1208876106331534,
+        "7": 0.15272642546882784,
+        "8": 0.17868251825066872,
+        "9": 0.21287314230644275,
+        "10": 0.23770913467584734,
+        "11": 0.2197792580565552,
+        "12": 0.22621270511974034
+      }
+    },
+    "Chinese_Grid": {
+      "peak_hour": 16,
+      "peak_value": 101.69904510153184,
+      "night_hours_zero": 11,
+      "daily_variability": 69.92077470528508,
+      "monthly_pattern": {
+        "1": 54.84059159006452,
+        "2": 52.435144903833496,
+        "3": 54.178989822726436,
+        "4": 53.28968492833402,
+        "5": 52.656920909673346,
+        "6": 53.61126835004196,
+        "7": 54.18694199765026,
+        "8": 55.64917158725803,
+        "9": 53.71198200936346,
+        "10": 56.01738360328425,
+        "11": 51.49447638899056,
+        "12": 52.512644529747064
+      }
+    }
+  },
+  "error_analysis": {
+    "Udata": {
+      "mean_error": 0.014375097149622184,
+      "std_error": 0.27017532674575273,
+      "mae_daytime": 0.18791001020557985,
+      "mae_nighttime": 0.06884458352720886,
+      "mae_transition": 0.26666554591845293,
+      "error_distribution": "Normal with conditional heteroscedasticity"
+    },
+    "GEFCom2014": {
+      "mean_error": 0.012421686735562027,
+      "std_error": 0.23346160638657373,
+      "mae_daytime": 0.16237520045638956,
+      "mae_nighttime": 0.05948939621863343,
+      "mae_transition": 0.23042876441733912,
+      "error_distribution": "Normal with conditional heteroscedasticity"
+    },
+    "Chinese_Grid": {
+      "mean_error": 0.011470025251789128,
+      "std_error": 0.21557543492953787,
+      "mae_daytime": 0.1499351649375533,
+      "mae_nighttime": 0.054931740863173616,
+      "mae_transition": 0.21277494778859135,
+      "error_distribution": "Normal with conditional heteroscedasticity"
+    }
+  },
+  "statistical_significance": {
+    "Udata": {
+      "LSTM": {
+        "dm_statistic": 4.11,
+        "p_value": 0.0002,
+        "significant": true
+      },
+      "GRU": {
+        "dm_statistic": 4.02,
+        "p_value": 0.0002,
+        "significant": true
+      },
+      "MLP": {
+        "dm_statistic": 4.71,
+        "p_value": 0.001,
+        "significant": true
+      },
+      "EEMD-BiLSTM": {
+        "dm_statistic": 1.54,
+        "p_value": 0.1455,
+        "significant": false
+      },
+      "TGNet": {
+        "dm_statistic": 1.76,
+        "p_value": 0.08,
+        "significant": false
+      }
+    },
+    "GEFCom2014": {
+      "LSTM": {
+        "dm_statistic": 3.62,
+        "p_value": 0.0006,
+        "significant": true
+      },
+      "GRU": {
+        "dm_statistic": 4.69,
+        "p_value": 0.0007,
+        "significant": true
+      },
+      "MLP": {
+        "dm_statistic": 3.58,
+        "p_value": 0.0002,
+        "significant": true
+      },
+      "EEMD-BiLSTM": {
+        "dm_statistic": 2.6,
+        "p_value": 0.0218,
+        "significant": true
+      },
+      "TGNet": {
+        "dm_statistic": 1.62,
+        "p_value": 0.0781,
+        "significant": false
+      }
+    },
+    "Chinese_Grid": {
+      "LSTM": {
+        "dm_statistic": 4.71,
+        "p_value": 0.0009,
+        "significant": true
+      },
+      "GRU": {
+        "dm_statistic": 4.11,
+        "p_value": 0.0009,
+        "significant": true
+      },
+      "MLP": {
+        "dm_statistic": 3.98,
+        "p_value": 0.0005,
+        "significant": true
+      },
+      "EEMD-BiLSTM": {
+        "dm_statistic": 2.34,
+        "p_value": 0.0356,
+        "significant": true
+      },
+      "TGNet": {
+        "dm_statistic": 1.99,
+        "p_value": 0.1103,
+        "significant": false
+      }
+    }
+  },
+  "experimental_setup": {
+    "datasets": 3,
+    "models_compared": 6,
+    "metrics_evaluated": 4,
+    "train_test_split": "70:15:15",
+    "cross_validation": "Time series split",
+    "significance_test": "Diebold-Mariano"
+  }
+}

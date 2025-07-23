@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  23 JUL 2025 09:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  23 JUL 2025 09:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -357,51 +357,47 @@ sed on input line 72.
 (pdftex.def)             Requested size: 464.39685pt x 297.34914pt.
  [2] [3 <../results/eemd_tgnet_architecture_professional.png>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-58.
+82.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (6.53516pt too wide) in paragraph at lines 156--166
+[4]
+Overfull \hbox (52.0221pt too wide) in paragraph at lines 222--229
  [][] 
  []
 
-
-Overfull \hbox (64.0221pt too wide) in paragraph at lines 177--184
- [][] 
- []
-
-<../results/standard_performance_comparison.png, id=27, 858.8085pt x 713.7867pt
+<../results/standard_performance_comparison.png, id=30, 858.8085pt x 713.7867pt
 >
 File: ../results/standard_performance_comparison.png Graphic file (type png)
 <use ../results/standard_performance_comparison.png>
 Package pdftex.def Info: ../results/standard_performance_comparison.png  used o
-n input line 217.
+n input line 267.
 (pdftex.def)             Requested size: 464.39685pt x 385.98366pt.
-<../results/standard_training_convergence.png, id=28, 711.6186pt x 424.9476pt>
+<../results/standard_training_convergence.png, id=31, 711.6186pt x 424.9476pt>
 File: ../results/standard_training_convergence.png Graphic file (type png)
 <use ../results/standard_training_convergence.png>
 Package pdftex.def Info: ../results/standard_training_convergence.png  used on 
-input line 226.
+input line 276.
 (pdftex.def)             Requested size: 247.6778pt x 147.9039pt.
-<../results/standard_accuracy_efficiency.png, id=29, 712.5822pt x 497.2176pt>
+<../results/standard_accuracy_efficiency.png, id=32, 712.5822pt x 497.2176pt>
 File: ../results/standard_accuracy_efficiency.png Graphic file (type png)
 <use ../results/standard_accuracy_efficiency.png>
 Package pdftex.def Info: ../results/standard_accuracy_efficiency.png  used on i
-nput line 232.
+nput line 282.
 (pdftex.def)             Requested size: 247.6778pt x 172.81485pt.
-<../results/standard_performance_heatmap.png, id=30, 674.0382pt x 426.393pt>
+<../results/standard_performance_heatmap.png, id=33, 674.0382pt x 426.393pt>
 File: ../results/standard_performance_heatmap.png Graphic file (type png)
 <use ../results/standard_performance_heatmap.png>
 Package pdftex.def Info: ../results/standard_performance_heatmap.png  used on i
-nput line 242.
+nput line 292.
 (pdftex.def)             Requested size: 247.6778pt x 156.67639pt.
-<../results/standard_optimization_impact.png, id=31, 859.5312pt x 354.123pt>
+<../results/standard_optimization_impact.png, id=34, 859.5312pt x 354.123pt>
 File: ../results/standard_optimization_impact.png Graphic file (type png)
 <use ../results/standard_optimization_impact.png>
 Package pdftex.def Info: ../results/standard_optimization_impact.png  used on i
-nput line 248.
+nput line 298.
 (pdftex.def)             Requested size: 247.6778pt x 102.03922pt.
-[4] [5 <../results/standard_performance_comparison.png> <../results/standard_tr
+[5] [6 <../results/standard_performance_comparison.png> <../results/standard_tr
 aining_convergence.png> <../results/standard_accuracy_efficiency.png>]
 
 ** Conference Paper **
@@ -414,21 +410,23 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6 <../results/standard_performance_heatmap.png> <../results/standard_optimizat
-ion_impact.png>] (./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
+[7
+
+ <../results/standard_performance_heatmap.png> <../results/standard_optimizatio
+n_impact.png>] (./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4294 strings out of 476106
- 69708 string characters out of 5793933
+ 4296 strings out of 476106
+ 69756 string characters out of 5793933
  1946975 words of memory out of 5000000
- 26262 multiletter control sequences out of 15000+600000
- 597620 words of font info for 110 fonts, out of 8000000 for 9000
+ 26263 multiletter control sequences out of 15000+600000
+ 597934 words of font info for 111 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 57i,9n,65p,1740b,326s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,9n,65p,1497b,326s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
@@ -440,11 +438,11 @@ blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (6 pages, 1655345 bytes
+Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (7 pages, 1658695 bytes
 ).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 102 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,102 @@
+{
+  "datasets": {
+    "udata": {
+      "name": "Udata Solar",
+      "file": "/home/anhpt95te/Downloads/UAI paper/data/udata_solar_prepared.csv",
+      "shape": [
+        5334,
+        7
+      ],
+      "target": "pow_P",
+      "date_range": [
+        "2024-09-16 18:00:00",
+        "2025-04-26 23:00:00"
+      ],
+      "description": "Real solar farm data with electrical measurements and weather features"
+    },
+    "gefcom2014_real": {
+      "name": "GEFCom2014 Solar (Real)",
+      "file": "/home/anhpt95te/Downloads/UAI paper/data/gefcom2014_solar_real.csv",
+      "shape": [
+        26280,
+        15
+      ],
+      "target": "POWER",
+      "features": [
+        "VAR78",
+        "VAR79",
+        "VAR134",
+        "VAR157",
+        "VAR164",
+        "VAR165",
+        "VAR166",
+        "VAR167",
+        "VAR169",
+        "VAR175",
+        "VAR178",
+        "VAR228"
+      ],
+      "zones": 3,
+      "date_range": [
+        "2012-04-01 01:00:00",
+        "2013-04-01 00:00:00"
+      ]
+    },
+    "chinese_grid": {
+      "name": "Chinese State Grid Solar",
+      "file": "/home/anhpt95te/Downloads/UAI paper/data/chinese_grid_solar_prepared.csv",
+      "shape": [
+        70081,
+        8
+      ],
+      "target": "solar_power",
+      "date_range": [
+        "2019-01-01 00:00:00",
+        "2020-12-31 00:00:00"
+      ],
+      "description": "Sample structure of Chinese renewable energy competition data"
+    }
+  },
+  "model_config": {
+    "eemd": {
+      "ensemble_size": 100,
+      "noise_amplitude": 0.2,
+      "max_imfs": 10
+    },
+    "tcn": {
+      "num_layers": 3,
+      "kernel_size": 3,
+      "dilation_rates": [
+        1,
+        2,
+        4
+      ],
+      "num_filters": 64,
+      "dropout": 0.2
+    },
+    "gru": {
+      "hidden_units": 128,
+      "num_layers": 2,
+      "dropout": 0.3,
+      "recurrent_dropout": 0.2
+    },
+    "training": {
+      "optimizer": "adam",
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "early_stopping_patience": 15,
+      "validation_split": 0.15
+    }
+  },
+  "evaluation": {
+    "metrics": [
+      "mse",
+      "mae",
+      "rmse",
+      "r2"
+    ],
+    "forecast_horizon": 6,
+    "input_sequence_length": 24
+  }
+}
