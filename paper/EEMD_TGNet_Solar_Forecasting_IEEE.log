@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  23 JUL 2025 10:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  23 JUL 2025 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,39 +391,39 @@ Overfull \hbox (52.0221pt too wide) in paragraph at lines 292--299
  [][] 
  []
 
-<../results/standard_performance_comparison.png, id=33, 858.8085pt x 713.7867pt
->
-File: ../results/standard_performance_comparison.png Graphic file (type png)
-<use ../results/standard_performance_comparison.png>
-Package pdftex.def Info: ../results/standard_performance_comparison.png  used o
+<../results/advanced_performance_comparison.png, id=33, 1147.8885pt x 854.2314p
+t>
+File: ../results/advanced_performance_comparison.png Graphic file (type png)
+<use ../results/advanced_performance_comparison.png>
+Package pdftex.def Info: ../results/advanced_performance_comparison.png  used o
 n input line 337.
-(pdftex.def)             Requested size: 464.39685pt x 385.98366pt.
-<../results/standard_training_convergence.png, id=34, 711.6186pt x 424.9476pt>
-File: ../results/standard_training_convergence.png Graphic file (type png)
-<use ../results/standard_training_convergence.png>
-Package pdftex.def Info: ../results/standard_training_convergence.png  used on 
-input line 346.
-(pdftex.def)             Requested size: 247.6778pt x 147.9039pt.
-<../results/standard_accuracy_efficiency.png, id=35, 712.5822pt x 497.2176pt>
-File: ../results/standard_accuracy_efficiency.png Graphic file (type png)
-<use ../results/standard_accuracy_efficiency.png>
-Package pdftex.def Info: ../results/standard_accuracy_efficiency.png  used on i
-nput line 352.
-(pdftex.def)             Requested size: 247.6778pt x 172.81485pt.
-<../results/standard_performance_heatmap.png, id=36, 674.0382pt x 426.393pt>
-File: ../results/standard_performance_heatmap.png Graphic file (type png)
-<use ../results/standard_performance_heatmap.png>
-Package pdftex.def Info: ../results/standard_performance_heatmap.png  used on i
-nput line 362.
-(pdftex.def)             Requested size: 247.6778pt x 156.67639pt.
-<../results/standard_optimization_impact.png, id=37, 859.5312pt x 354.123pt>
-File: ../results/standard_optimization_impact.png Graphic file (type png)
-<use ../results/standard_optimization_impact.png>
-Package pdftex.def Info: ../results/standard_optimization_impact.png  used on i
-nput line 368.
-(pdftex.def)             Requested size: 247.6778pt x 102.03922pt.
-[6] [7 <../results/standard_performance_comparison.png> <../results/standard_tr
-aining_convergence.png> <../results/standard_accuracy_efficiency.png>]
+(pdftex.def)             Requested size: 464.39685pt x 345.58383pt.
+<../results/model_category_analysis.png, id=34, 1292.4285pt x 428.3202pt>
+File: ../results/model_category_analysis.png Graphic file (type png)
+<use ../results/model_category_analysis.png>
+Package pdftex.def Info: ../results/model_category_analysis.png  used on input 
+line 346.
+(pdftex.def)             Requested size: 247.6778pt x 82.081pt.
+<../results/improvement_analysis.png, id=35, 1292.1876pt x 428.802pt>
+File: ../results/improvement_analysis.png Graphic file (type png)
+<use ../results/improvement_analysis.png>
+Package pdftex.def Info: ../results/improvement_analysis.png  used on input lin
+e 352.
+(pdftex.def)             Requested size: 247.6778pt x 82.1864pt.
+<../results/performance_scatter_matrix.png, id=36, 1292.1876pt x 853.9905pt>
+File: ../results/performance_scatter_matrix.png Graphic file (type png)
+<use ../results/performance_scatter_matrix.png>
+Package pdftex.def Info: ../results/performance_scatter_matrix.png  used on inp
+ut line 362.
+(pdftex.def)             Requested size: 247.6778pt x 163.68024pt.
+<../results/model_ranking_heatmap.png, id=37, 946.737pt x 715.473pt>
+File: ../results/model_ranking_heatmap.png Graphic file (type png)
+<use ../results/model_ranking_heatmap.png>
+Package pdftex.def Info: ../results/model_ranking_heatmap.png  used on input li
+ne 368.
+(pdftex.def)             Requested size: 247.6778pt x 187.17581pt.
+[6] [7 <../results/advanced_performance_comparison.png> <../results/model_categ
+ory_analysis.png> <../results/improvement_analysis.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -437,8 +437,8 @@ Before submitting the final camera ready copy, remember to:
 
 [8
 
- <../results/standard_performance_heatmap.png> <../results/standard_optimizatio
-n_impact.png>] (./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
+ <../results/performance_scatter_matrix.png> <../results/model_ranking_heatmap.
+png>] (./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -446,7 +446,7 @@ L3 programming layer <2024-01-22>
  ) 
 Here is how much of TeX's memory you used:
  4297 strings out of 476106
- 69772 string characters out of 5793933
+ 69610 string characters out of 5793933
  1947975 words of memory out of 5000000
  26264 multiletter control sequences out of 15000+600000
  597934 words of font info for 111 fonts, out of 8000000 for 9000
@@ -463,7 +463,7 @@ blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (8 pages, 1663575 bytes
+Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (8 pages, 2855219 bytes
 ).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
