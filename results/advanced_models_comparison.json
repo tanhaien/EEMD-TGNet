@@ -1,0 +1,548 @@
+{
+  "all_model_results": {
+    "Udata": {
+      "LSTM": {
+        "MSE": 0.289,
+        "MAE": 0.421,
+        "RMSE": 0.538,
+        "R\u00b2": 79.8,
+        "MAPE": 15.2
+      },
+      "GRU": {
+        "MSE": 0.276,
+        "MAE": 0.407,
+        "RMSE": 0.525,
+        "R\u00b2": 80.7,
+        "MAPE": 14.8
+      },
+      "BiLSTM": {
+        "MSE": 0.268,
+        "MAE": 0.398,
+        "RMSE": 0.518,
+        "R\u00b2": 81.3,
+        "MAPE": 14.5
+      },
+      "MLP": {
+        "MSE": 0.312,
+        "MAE": 0.445,
+        "RMSE": 0.558,
+        "R\u00b2": 78.2,
+        "MAPE": 16.1
+      },
+      "CNN-LSTM": {
+        "MSE": 0.234,
+        "MAE": 0.365,
+        "RMSE": 0.484,
+        "R\u00b2": 83.6,
+        "MAPE": 13.2
+      },
+      "CNN-BiLSTM": {
+        "MSE": 0.228,
+        "MAE": 0.358,
+        "RMSE": 0.477,
+        "R\u00b2": 84.1,
+        "MAPE": 12.9
+      },
+      "CNN-GRU": {
+        "MSE": 0.241,
+        "MAE": 0.372,
+        "RMSE": 0.491,
+        "R\u00b2": 83.1,
+        "MAPE": 13.5
+      },
+      "CNN-BiGRU": {
+        "MSE": 0.225,
+        "MAE": 0.354,
+        "RMSE": 0.474,
+        "R\u00b2": 84.3,
+        "MAPE": 12.7
+      },
+      "CNN-LSTM-RF": {
+        "MSE": 0.213,
+        "MAE": 0.334,
+        "RMSE": 0.462,
+        "R\u00b2": 85.2,
+        "MAPE": 12.1
+      },
+      "CNN-SLSTM": {
+        "MSE": 0.208,
+        "MAE": 0.328,
+        "RMSE": 0.456,
+        "R\u00b2": 85.6,
+        "MAPE": 11.8
+      },
+      "ResNet-LSTM": {
+        "MSE": 0.218,
+        "MAE": 0.34,
+        "RMSE": 0.467,
+        "R\u00b2": 84.8,
+        "MAPE": 12.3
+      },
+      "Transformer": {
+        "MSE": 0.201,
+        "MAE": 0.318,
+        "RMSE": 0.448,
+        "R\u00b2": 86.1,
+        "MAPE": 11.4
+      },
+      "Informer": {
+        "MSE": 0.196,
+        "MAE": 0.312,
+        "RMSE": 0.443,
+        "R\u00b2": 86.4,
+        "MAPE": 11.2
+      },
+      "Autoformer": {
+        "MSE": 0.192,
+        "MAE": 0.307,
+        "RMSE": 0.438,
+        "R\u00b2": 86.7,
+        "MAPE": 11.0
+      },
+      "PatchTST": {
+        "MSE": 0.184,
+        "MAE": 0.298,
+        "RMSE": 0.429,
+        "R\u00b2": 87.3,
+        "MAPE": 10.6
+      },
+      "ViT-GRU": {
+        "MSE": 0.188,
+        "MAE": 0.302,
+        "RMSE": 0.434,
+        "R\u00b2": 87.0,
+        "MAPE": 10.8
+      },
+      "ConvLSTM": {
+        "MSE": 0.205,
+        "MAE": 0.322,
+        "RMSE": 0.453,
+        "R\u00b2": 85.8,
+        "MAPE": 11.6
+      },
+      "Attention-LSTM": {
+        "MSE": 0.198,
+        "MAE": 0.315,
+        "RMSE": 0.445,
+        "R\u00b2": 86.2,
+        "MAPE": 11.3
+      },
+      "Wavelet-BiLSTM": {
+        "MSE": 0.178,
+        "MAE": 0.289,
+        "RMSE": 0.422,
+        "R\u00b2": 87.7,
+        "MAPE": 10.3
+      },
+      "EEMD-BiLSTM": {
+        "MSE": 0.195,
+        "MAE": 0.321,
+        "RMSE": 0.442,
+        "R\u00b2": 86.4,
+        "MAPE": 11.5
+      },
+      "TGNet": {
+        "MSE": 0.186,
+        "MAE": 0.308,
+        "RMSE": 0.431,
+        "R\u00b2": 87.0,
+        "MAPE": 11.0
+      },
+      "EEMD-TGNet": {
+        "MSE": 0.167,
+        "MAE": 0.287,
+        "RMSE": 0.409,
+        "R\u00b2": 88.3,
+        "MAPE": 10.1
+      }
+    },
+    "GEFCom2014": {
+      "LSTM": {
+        "MSE": 0.196,
+        "MAE": 0.342,
+        "RMSE": 0.443,
+        "R\u00b2": 84.2,
+        "MAPE": 12.8
+      },
+      "GRU": {
+        "MSE": 0.191,
+        "MAE": 0.338,
+        "RMSE": 0.437,
+        "R\u00b2": 84.6,
+        "MAPE": 12.5
+      },
+      "BiLSTM": {
+        "MSE": 0.185,
+        "MAE": 0.331,
+        "RMSE": 0.43,
+        "R\u00b2": 85.1,
+        "MAPE": 12.2
+      },
+      "MLP": {
+        "MSE": 0.208,
+        "MAE": 0.355,
+        "RMSE": 0.456,
+        "R\u00b2": 83.3,
+        "MAPE": 13.4
+      },
+      "CNN-LSTM": {
+        "MSE": 0.168,
+        "MAE": 0.315,
+        "RMSE": 0.41,
+        "R\u00b2": 86.4,
+        "MAPE": 11.7
+      },
+      "CNN-BiLSTM": {
+        "MSE": 0.162,
+        "MAE": 0.308,
+        "RMSE": 0.402,
+        "R\u00b2": 86.9,
+        "MAPE": 11.4
+      },
+      "CNN-GRU": {
+        "MSE": 0.171,
+        "MAE": 0.319,
+        "RMSE": 0.414,
+        "R\u00b2": 86.1,
+        "MAPE": 11.9
+      },
+      "CNN-BiGRU": {
+        "MSE": 0.159,
+        "MAE": 0.304,
+        "RMSE": 0.399,
+        "R\u00b2": 87.2,
+        "MAPE": 11.2
+      },
+      "CNN-LSTM-RF": {
+        "MSE": 0.148,
+        "MAE": 0.289,
+        "RMSE": 0.385,
+        "R\u00b2": 88.1,
+        "MAPE": 10.6
+      },
+      "CNN-SLSTM": {
+        "MSE": 0.144,
+        "MAE": 0.283,
+        "RMSE": 0.379,
+        "R\u00b2": 88.4,
+        "MAPE": 10.3
+      },
+      "ResNet-LSTM": {
+        "MSE": 0.152,
+        "MAE": 0.294,
+        "RMSE": 0.39,
+        "R\u00b2": 87.8,
+        "MAPE": 10.8
+      },
+      "Transformer": {
+        "MSE": 0.139,
+        "MAE": 0.276,
+        "RMSE": 0.373,
+        "R\u00b2": 88.8,
+        "MAPE": 10.0
+      },
+      "Informer": {
+        "MSE": 0.135,
+        "MAE": 0.271,
+        "RMSE": 0.367,
+        "R\u00b2": 89.1,
+        "MAPE": 9.8
+      },
+      "Autoformer": {
+        "MSE": 0.131,
+        "MAE": 0.266,
+        "RMSE": 0.362,
+        "R\u00b2": 89.4,
+        "MAPE": 9.5
+      },
+      "PatchTST": {
+        "MSE": 0.124,
+        "MAE": 0.257,
+        "RMSE": 0.352,
+        "R\u00b2": 90.0,
+        "MAPE": 9.1
+      },
+      "ViT-GRU": {
+        "MSE": 0.128,
+        "MAE": 0.262,
+        "RMSE": 0.358,
+        "R\u00b2": 89.7,
+        "MAPE": 9.3
+      },
+      "ConvLSTM": {
+        "MSE": 0.141,
+        "MAE": 0.279,
+        "RMSE": 0.375,
+        "R\u00b2": 88.6,
+        "MAPE": 10.1
+      },
+      "Attention-LSTM": {
+        "MSE": 0.136,
+        "MAE": 0.273,
+        "RMSE": 0.369,
+        "R\u00b2": 89.0,
+        "MAPE": 9.9
+      },
+      "Wavelet-BiLSTM": {
+        "MSE": 0.118,
+        "MAE": 0.248,
+        "RMSE": 0.344,
+        "R\u00b2": 90.5,
+        "MAPE": 8.7
+      },
+      "EEMD-BiLSTM": {
+        "MSE": 0.134,
+        "MAE": 0.278,
+        "RMSE": 0.366,
+        "R\u00b2": 89.2,
+        "MAPE": 10.0
+      },
+      "TGNet": {
+        "MSE": 0.127,
+        "MAE": 0.265,
+        "RMSE": 0.356,
+        "R\u00b2": 89.8,
+        "MAPE": 9.5
+      },
+      "EEMD-TGNet": {
+        "MSE": 0.113,
+        "MAE": 0.248,
+        "RMSE": 0.336,
+        "R\u00b2": 91.1,
+        "MAPE": 8.4
+      }
+    },
+    "Chinese_Grid": {
+      "LSTM": {
+        "MSE": 0.178,
+        "MAE": 0.318,
+        "RMSE": 0.422,
+        "R\u00b2": 85.7,
+        "MAPE": 11.9
+      },
+      "GRU": {
+        "MSE": 0.173,
+        "MAE": 0.314,
+        "RMSE": 0.416,
+        "R\u00b2": 86.1,
+        "MAPE": 11.6
+      },
+      "BiLSTM": {
+        "MSE": 0.168,
+        "MAE": 0.307,
+        "RMSE": 0.41,
+        "R\u00b2": 86.5,
+        "MAPE": 11.3
+      },
+      "MLP": {
+        "MSE": 0.189,
+        "MAE": 0.331,
+        "RMSE": 0.435,
+        "R\u00b2": 84.8,
+        "MAPE": 12.4
+      },
+      "CNN-LSTM": {
+        "MSE": 0.152,
+        "MAE": 0.289,
+        "RMSE": 0.39,
+        "R\u00b2": 87.8,
+        "MAPE": 10.7
+      },
+      "CNN-BiLSTM": {
+        "MSE": 0.147,
+        "MAE": 0.282,
+        "RMSE": 0.383,
+        "R\u00b2": 88.2,
+        "MAPE": 10.4
+      },
+      "CNN-GRU": {
+        "MSE": 0.155,
+        "MAE": 0.293,
+        "RMSE": 0.394,
+        "R\u00b2": 87.5,
+        "MAPE": 10.9
+      },
+      "CNN-BiGRU": {
+        "MSE": 0.144,
+        "MAE": 0.278,
+        "RMSE": 0.379,
+        "R\u00b2": 88.4,
+        "MAPE": 10.2
+      },
+      "CNN-LSTM-RF": {
+        "MSE": 0.133,
+        "MAE": 0.264,
+        "RMSE": 0.365,
+        "R\u00b2": 89.3,
+        "MAPE": 9.6
+      },
+      "CNN-SLSTM": {
+        "MSE": 0.129,
+        "MAE": 0.259,
+        "RMSE": 0.359,
+        "R\u00b2": 89.6,
+        "MAPE": 9.3
+      },
+      "ResNet-LSTM": {
+        "MSE": 0.137,
+        "MAE": 0.269,
+        "RMSE": 0.37,
+        "R\u00b2": 89.0,
+        "MAPE": 9.8
+      },
+      "Transformer": {
+        "MSE": 0.124,
+        "MAE": 0.253,
+        "RMSE": 0.352,
+        "R\u00b2": 90.0,
+        "MAPE": 9.0
+      },
+      "Informer": {
+        "MSE": 0.12,
+        "MAE": 0.248,
+        "RMSE": 0.346,
+        "R\u00b2": 90.3,
+        "MAPE": 8.8
+      },
+      "Autoformer": {
+        "MSE": 0.116,
+        "MAE": 0.243,
+        "RMSE": 0.341,
+        "R\u00b2": 90.6,
+        "MAPE": 8.5
+      },
+      "PatchTST": {
+        "MSE": 0.109,
+        "MAE": 0.234,
+        "RMSE": 0.33,
+        "R\u00b2": 91.2,
+        "MAPE": 8.1
+      },
+      "ViT-GRU": {
+        "MSE": 0.113,
+        "MAE": 0.239,
+        "RMSE": 0.336,
+        "R\u00b2": 90.9,
+        "MAPE": 8.3
+      },
+      "ConvLSTM": {
+        "MSE": 0.126,
+        "MAE": 0.256,
+        "RMSE": 0.355,
+        "R\u00b2": 89.8,
+        "MAPE": 9.1
+      },
+      "Attention-LSTM": {
+        "MSE": 0.121,
+        "MAE": 0.251,
+        "RMSE": 0.348,
+        "R\u00b2": 90.2,
+        "MAPE": 8.9
+      },
+      "Wavelet-BiLSTM": {
+        "MSE": 0.103,
+        "MAE": 0.225,
+        "RMSE": 0.321,
+        "R\u00b2": 91.7,
+        "MAPE": 7.7
+      },
+      "EEMD-BiLSTM": {
+        "MSE": 0.119,
+        "MAE": 0.258,
+        "RMSE": 0.345,
+        "R\u00b2": 90.4,
+        "MAPE": 9.2
+      },
+      "TGNet": {
+        "MSE": 0.114,
+        "MAE": 0.247,
+        "RMSE": 0.338,
+        "R\u00b2": 90.8,
+        "MAPE": 8.8
+      },
+      "EEMD-TGNet": {
+        "MSE": 0.098,
+        "MAE": 0.229,
+        "RMSE": 0.313,
+        "R\u00b2": 92.1,
+        "MAPE": 7.4
+      }
+    }
+  },
+  "category_analysis": {
+    "Udata": {
+      "Basic RNN": 0.28625,
+      "CNN-Hybrid": 0.232,
+      "Advanced Hybrid": 0.213,
+      "Transformer": 0.19324999999999998,
+      "Vision-Based": 0.19699999999999998,
+      "Ensemble": 0.1815
+    },
+    "GEFCom2014": {
+      "Basic RNN": 0.195,
+      "CNN-Hybrid": 0.165,
+      "Advanced Hybrid": 0.148,
+      "Transformer": 0.13225,
+      "Vision-Based": 0.135,
+      "Ensemble": 0.123
+    },
+    "Chinese_Grid": {
+      "Basic RNN": 0.177,
+      "CNN-Hybrid": 0.1495,
+      "Advanced Hybrid": 0.133,
+      "Transformer": 0.11725,
+      "Vision-Based": 0.12,
+      "Ensemble": 0.10849999999999999
+    }
+  },
+  "model_count": 22,
+  "dataset_count": 3,
+  "metrics_evaluated": [
+    "MSE",
+    "MAE",
+    "RMSE",
+    "R\u00b2",
+    "MAPE"
+  ],
+  "best_models_by_dataset": {
+    "Udata": {
+      "model": "EEMD-TGNet",
+      "mse": 0.167,
+      "r2": 88.3
+    },
+    "GEFCom2014": {
+      "model": "EEMD-TGNet",
+      "mse": 0.113,
+      "r2": 91.1
+    },
+    "Chinese_Grid": {
+      "model": "EEMD-TGNet",
+      "mse": 0.098,
+      "r2": 92.1
+    }
+  },
+  "model_rankings": {
+    "EEMD-TGNet": 0.126,
+    "Wavelet-BiLSTM": 0.13299999999999998,
+    "PatchTST": 0.13899999999999998,
+    "TGNet": 0.14233333333333334,
+    "ViT-GRU": 0.143,
+    "Autoformer": 0.14633333333333334,
+    "EEMD-BiLSTM": 0.14933333333333335,
+    "Informer": 0.15033333333333335,
+    "Attention-LSTM": 0.15166666666666667,
+    "Transformer": 0.15466666666666667,
+    "ConvLSTM": 0.15733333333333333,
+    "CNN-SLSTM": 0.16033333333333333,
+    "CNN-LSTM-RF": 0.16466666666666666,
+    "ResNet-LSTM": 0.169,
+    "CNN-BiGRU": 0.17600000000000002,
+    "CNN-BiLSTM": 0.17900000000000002,
+    "CNN-LSTM": 0.18466666666666667,
+    "CNN-GRU": 0.18900000000000003,
+    "BiLSTM": 0.207,
+    "GRU": 0.21333333333333335,
+    "LSTM": 0.221,
+    "MLP": 0.23633333333333337
+  }
+}
