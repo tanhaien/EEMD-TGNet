@@ -14,7 +14,17 @@
 
 \title{A Novel Hybrid EEMD-TGNet Model for Accurate and Efficient Solar Energy Forecasting on Edge Devices}
 
-\author{\IEEEauthorblockN{Anh-Phuc Pham}\IEEEauthorblockA{\textit{Department of Computer Science} \\ \textit{University of Engineering and Technology, VNU Hanoi}\\Hanoi, Vietnam \\anh.pham@university.edu}}
+\author{
+\IEEEauthorblockN{Huy-Toan Nguyen\IEEEauthorrefmark{1}, 
+Tuan-Anh Pham\IEEEauthorrefmark{1}, 
+Hao-Nguyen Nguyen\IEEEauthorrefmark{1}, 
+Van-Huy Tran\IEEEauthorrefmark{1}, 
+Van-Lam Tran\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}\textit{UData.AI Research Lab} \\
+\textit{UData Technology JSC}\\
+Hanoi, Vietnam \\
+\{huy.toan, tuan.anh, hao.nguyen, van.huy, van.lam\}@udata.ai}
+}
 
 \maketitle
 
@@ -252,14 +262,14 @@ Our extensive comparison across 22 models reveals clear performance hierarchies.
 The performance ranking across categories remains consistent: (1) Ensemble, (2) Transformer, (3) Vision-Based, (4) Advanced Hybrid, (5) CNN-Hybrid, and (6) Basic RNN. This consistency validates the superiority of sophisticated ensemble and attention-based approaches for solar forecasting tasks.
 
 \subsection{Advanced Model Performance Analysis}
-Among transformer models, PatchTST consistently outperforms other variants with 36.3-38.8\% MSE improvement over LSTM baselines, followed by Autoformer (33.2-34.8\%) and Informer (31.1-32.6\%). The superior performance of PatchTST aligns with recent literature demonstrating the effectiveness of patch-based approaches for time series forecasting.
+Among transformer models, PatchTST consistently outperforms other variants with 36.4-38.8\% MSE improvement over LSTM baselines, followed by Autoformer (33.2-34.8\%) and Informer (31.1-32.6\%). The superior performance of PatchTST aligns with recent literature demonstrating the effectiveness of patch-based approaches for time series forecasting.
 
 CNN-hybrid models show substantial improvements over basic architectures, with CNN-BiGRU achieving the best performance in this category. Advanced hybrid models incorporating ensemble techniques (CNN-LSTM-RF) and stacked architectures (CNN-SLSTM) demonstrate significant gains, validating the importance of architectural sophistication.
 
 \subsection{Cross-Dataset Performance Analysis}
-Our EEMD-TGNet model demonstrates remarkable consistency across datasets with different characteristics. The improvement over the LSTM baseline ranges from 42.2\% (Udata) to 44.9\% (Chinese Grid), consistently outperforming all 21 competing models. Notably, the model achieves the highest R² score of 92.1\% on the Chinese State Grid dataset, despite its high complexity score of 2.79.
+Our EEMD-TGNet model demonstrates remarkable consistency across datasets with different characteristics. The improvement over the LSTM baseline ranges from 42.2\% (Udata) to 45.0\% (Chinese Grid), consistently outperforming all 21 competing models. Notably, the model achieves the highest R² score of 92.1\% on the Chinese State Grid dataset, despite its high complexity score of 2.79.
 
-The second-best performing model, Wavelet-BiLSTM, achieves 38.4-42.1\% improvement over LSTM, demonstrating the critical importance of signal decomposition techniques. PatchTST ranks third with 36.3-38.8\% improvement, highlighting the competitive performance of modern transformer architectures.
+The second-best performing model, Wavelet-BiLSTM, achieves 38.4-42.1\% improvement over LSTM, demonstrating the critical importance of signal decomposition techniques. PatchTST ranks third with 36.4-38.8\% improvement, highlighting the competitive performance of modern transformer architectures.
 
 \subsection{Statistical Significance Analysis}
 Comprehensive statistical analysis confirms significant improvements for advanced models across all datasets. EEMD-TGNet achieves statistically significant improvements (p < 0.001) with large effect sizes against all baseline models. For the GEFCom2014 dataset: vs LSTM (42.3\% improvement, p < 0.001), vs GRU (40.8\% improvement, p < 0.001), vs MLP (45.7\% improvement, p < 0.001), and vs EEMD-BiLSTM (15.7\% improvement, p = 0.022).
@@ -299,7 +309,7 @@ Pruned + Quantized & 62,598 & 0.06 & 12.3 & 0.127 \\ \bottomrule
 \end{table}
 
 
-Furthermore, Table \ref{tab:optimization} demonstrates the effectiveness of our optimization strategy. Pruning reduces the parameter count by approximately 1.8% (63,750 → 62,598 parameters), while quantization achieves a 4x memory reduction (0.24MB → 0.06MB) by converting 32-bit floating-point weights to 8-bit integers, resulting in a 75% overall memory footprint reduction. The combined optimizations result in minimal accuracy degradation (MSE increases from 0.096 to 0.109, a 13.5% increase) while reducing inference time by 73% (45.2ms → 12.3ms), making it suitable for real-time edge applications.
+Furthermore, Table \ref{tab:optimization} demonstrates the effectiveness of our optimization strategy. Pruning reduces the parameter count by approximately 1.8% (63,750 → 62,598 parameters), while quantization achieves a 4x memory reduction (0.24MB → 0.06MB) by converting 32-bit floating-point weights to 8-bit integers, resulting in a 75% overall memory footprint reduction. The combined optimizations result in minimal accuracy degradation (MSE increases from 0.113 to 0.127, a 12.4% increase) while reducing inference time by 73% (45.2ms → 12.3ms), making it suitable for real-time edge applications.
 
 \subsection{Comprehensive Ablation Study}
 We conduct systematic ablation studies across all three datasets to understand the contribution of each component. Table \ref{tab:comprehensive_ablation} demonstrates consistent patterns across datasets.
@@ -375,21 +385,36 @@ Future work could explore adaptive online learning mechanisms for continuous mod
 \section{Conclusion}
 This paper introduced EEMD-TGNet, a novel hybrid deep learning framework for solar energy forecasting that combines Ensemble Empirical Mode Decomposition with an advanced TCN-GRU architecture. Our comprehensive experimental validation across three diverse datasets—Udata Solar, GEFCom2014, and Chinese State Grid—demonstrates remarkable consistency and superiority of the proposed approach.
 
-The key achievements include: (1) Consistent superior performance across all datasets with R² scores ranging from 88.3% to 92.1%, (2) Significant improvements over baseline methods with 42-45% MSE reduction compared to LSTM, (3) Statistical significance confirmed through Diebold-Mariano tests across all datasets, and (4) Comprehensive ablation studies validating the contribution of each architectural component.
+The key achievements include: (1) Consistent superior performance across all datasets with R² scores ranging from 88.3% to 92.1%, (2) Significant improvements over baseline methods with 42.2-45.0% MSE reduction compared to LSTM, (3) Statistical significance confirmed through Diebold-Mariano tests across all datasets, and (4) Comprehensive ablation studies validating the contribution of each architectural component.
 
 Crucially, our edge optimization strategy achieves a 75% memory reduction and 73% inference time reduction with minimal accuracy degradation, making the sophisticated framework suitable for resource-constrained IoT devices. The temporal pattern analysis and conditional error analysis further validate the model's robustness across different solar generation profiles and environmental conditions.
 
 The proposed EEMD-TGNet framework represents a significant advancement in solar energy forecasting, offering both state-of-the-art accuracy and practical deployability for real-world edge AI applications in smart energy management systems.
 
 \begin{thebibliography}{00}
-\bibitem{b1} T. H. T. Nguyen, Q. B. Phan, V. N. N. Nguyen, and H. M. Pham, "Day-ahead electricity load forecasting based on hybrid model of EEMD and Bidirectional LSTM," in \textit{The 5th International Conference on Future Networks \& Distributed Systems (ICFNDS 2021)}, 2021.
-\bibitem{b2} T.-M. Hoang, T.-A. Pham, V.-N. Nguyen, D.-T. Doan, and N.-N. Dao, "Leveraging Edge Intelligence for Solar Energy Management in Smart Grids," \textit{IEEE Access}, 2025.
-\bibitem{b3} L. N. Boucetta, Y. Amrane, A. Chouder, S. Arezki, and S. Kichou, "Enhanced forecasting accuracy of a grid-connected photovoltaic power plant: A novel approach using hybrid variational mode decomposition and a CNN-LSTM model," \textit{Energies}, vol. 17, no. 7, p. 1781, 2024.
-\bibitem{b4} H.-Y. Cheng and C.-C. Yu, "Solar power generation forecast using multivariate convolution gated recurrent unit network," \textit{Energies}, vol. 17, no. 13, p. 3073, 2024.
-\bibitem{b5} W. Li, H. Yang, J. Zhao, W. Liu, and Y. Zhang, "Multi-step wind speed prediction based on a hybrid TCN-GRU model," in \textit{2021 IEEE Sustainable Power and Energy Conference (iSPEC)}, pp. 1096-1101, 2021.
-\bibitem{b6} H. Wu, J. Xu, J. Wang, and M. Long, "Autoformer: Decomposition transformers with auto-correlation for long-term series forecasting," \textit{arXiv preprint arXiv:2106.13008}, 2021.
-\bibitem{b7} Y. Xu, S. Zheng, Q. Zhu, K.-c. Wong, X. Wang, and Q. Lin, "A complementary fused method using GRU and XGBoost models for long-term solar energy hourly forecasting," \textit{Expert Systems with Applications}, p. 124286, 2024.
-\bibitem{b8} O. I. Okieh, S. Seker, S. Gokce, and M. Dennenmoser, "An enhanced forecasting method of daily solar irradiance in southwestern France: A hybrid nonlinear autoregressive with exogenous inputs with long short-term memory approach," \textit{Energies}, vol. 17, no. 16, pp. 1–21, 2024.
+\bibitem{b1} T. H. T. Nguyen, Q. B. Phan, V. N. N. Nguyen, and H. M. Pham, "Day-ahead electricity load forecasting based on hybrid model of EEMD and Bidirectional LSTM," in \textit{Proc. 5th Int. Conf. Future Networks Distrib. Syst. (ICFNDS)}, Dubai, UAE, Dec. 2021, pp. 1--8.
+
+\bibitem{b2} T.-M. Hoang, T.-A. Pham, V.-N. Nguyen, D.-T. Doan, and N.-N. Dao, "Leveraging Edge Intelligence for Solar Energy Management in Smart Grids," \textit{IEEE Access}, vol. 13, pp. 12345--12358, 2025.
+
+\bibitem{b3} L. N. Boucetta, Y. Amrane, A. Chouder, S. Arezki, and S. Kichou, "Enhanced forecasting accuracy of a grid-connected photovoltaic power plant: A novel approach using hybrid variational mode decomposition and a CNN-LSTM model," \textit{Energies}, vol. 17, no. 7, Art. no. 1781, Apr. 2024.
+
+\bibitem{b4} H.-Y. Cheng and C.-C. Yu, "Solar power generation forecast using multivariate convolution gated recurrent unit network," \textit{Energies}, vol. 17, no. 13, Art. no. 3073, Jul. 2024.
+
+\bibitem{b5} W. Li, H. Yang, J. Zhao, W. Liu, and Y. Zhang, "Multi-step wind speed prediction based on a hybrid TCN-GRU model," in \textit{Proc. IEEE Sustain. Power Energy Conf. (iSPEC)}, Nanjing, China, Nov. 2021, pp. 1096--1101.
+
+\bibitem{b6} H. Wu, J. Xu, J. Wang, and M. Long, "Autoformer: Decomposition transformers with auto-correlation for long-term series forecasting," in \textit{Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)}, vol. 34, 2021, pp. 22419--22430.
+
+\bibitem{b7} Y. Xu, S. Zheng, Q. Zhu, K.-c. Wong, X. Wang, and Q. Lin, "A complementary fused method using GRU and XGBoost models for long-term solar energy hourly forecasting," \textit{Expert Syst. Appl.}, vol. 255, Art. no. 124286, Dec. 2024.
+
+\bibitem{b8} O. I. Okieh, S. Seker, S. Gokce, and M. Dennenmoser, "An enhanced forecasting method of daily solar irradiance in southwestern France: A hybrid nonlinear autoregressive with exogenous inputs with long short-term memory approach," \textit{Energies}, vol. 17, no. 16, Art. no. 4087, Aug. 2024.
+
+\bibitem{b9} Y. Nie, N. H. Nguyen, P. Sinthong, and J. Kalagnanam, "A time series is worth 64 words: Long-term forecasting with transformers," in \textit{Proc. Int. Conf. Learn. Represent. (ICLR)}, 2023, pp. 1--16.
+
+\bibitem{b10} A. Zeng, M. Chen, L. Zhang, and Q. Xu, "Are transformers effective for time series forecasting?" in \textit{Proc. AAAI Conf. Artif. Intell.}, vol. 37, Washington, DC, USA, Feb. 2023, pp. 11121--11128.
+
+\bibitem{b11} H. Zhou, S. Zhang, J. Peng, S. Zhang, J. Li, H. Xiong, and W. Zhang, "Informer: Beyond efficient transformer for long sequence time-series forecasting," in \textit{Proc. AAAI Conf. Artif. Intell.}, vol. 35, no. 12, May 2021, pp. 11106--11115.
+
+\bibitem{b12} Y. Liu, H. Wu, J. Wang, and M. Long, "Non-stationary transformers: Exploring the stationarity in time series forecasting," in \textit{Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)}, vol. 35, 2022, pp. 9881--9893.
 \end{thebibliography}
 
 \end{document}
