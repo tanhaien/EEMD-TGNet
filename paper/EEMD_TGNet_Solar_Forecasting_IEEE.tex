@@ -15,21 +15,23 @@
 \title{A Novel Hybrid EEMD-TGNet Model for Accurate and Efficient Solar Energy Forecasting on Edge Devices}
 
 \author{
-\IEEEauthorblockN{Huy-Toan Nguyen\IEEEauthorrefmark{1}, 
+\IEEEauthorblockN{Toan Nguyen\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, 
 Tuan-Anh Pham\IEEEauthorrefmark{1}, 
 Hao-Nguyen Nguyen\IEEEauthorrefmark{1}, 
 Van-Huy Tran\IEEEauthorrefmark{1}, 
-Van-Lam Tran\IEEEauthorrefmark{1}}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}\textit{UData.AI Research Lab} \\
-\textit{UData Technology JSC}\\
+Nguyen Hoan Lam\IEEEauthorrefmark{1}\IEEEauthorrefmark{3}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}\textit{Research Department} \\
+\textit{Udata JSC}\\
 Hanoi, Vietnam \\
-\{huy.toan, tuan.anh, hao.nguyen, van.huy, van.lam\}@udata.ai}
+\{toannh, tuan.anh, hao.nguyen, van.huy, lam\}@udata.ai}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Senior AI Research Expert of Udata JSC}
+\IEEEauthorblockA{\IEEEauthorrefmark{3}Chief Executive Officer and Founder of Udata JSC}
 }
 
 \maketitle
 
 \begin{abstract}
-The integration of solar power into smart grids demands accurate and efficient energy forecasting. However, the inherent intermittency and non-stationarity of solar radiation pose significant challenges. This paper proposes a novel hybrid deep learning framework, the Ensemble Empirical Mode Decomposition-based Temporal Convolutional Gated Recurrent Unit Network (EEMD-TGNet), to address these challenges. Our model first uses EEMD to decompose the raw solar energy time series into a set of simpler, more stationary Intrinsic Mode Functions (IMFs). Each IMF is then independently forecasted using a hybrid Temporal Convolutional Network (TCN) and Gated Recurrent Unit (GRU) model, which captures both long-range dependencies and sequential patterns. The final forecast is an aggregation of the predictions for each IMF. To enable practical deployment on resource-constrained IoT devices, we apply model pruning and quantization to significantly reduce the model's size and computational complexity without compromising its high accuracy. Experimental validation on three diverse datasets demonstrates that EEMD-TGNet achieves state-of-the-art performance with a 91.1% R² score, 0.113 MSE, and 0.248 MAE on the GEFCom2014 benchmark, while reducing model size by 75% through optimization. The proposed framework offers a significant advancement in edge intelligence for solar energy management, providing both superior accuracy and practical deployability.
+The integration of solar power into smart grids demands accurate and efficient energy forecasting. However, the inherent intermittency and non-stationarity of solar radiation pose significant challenges. This paper proposes a novel hybrid deep learning framework, the Ensemble Empirical Mode Decomposition-based Temporal Convolutional Gated Recurrent Unit Network (EEMD-TGNet), to address these challenges. Our model first uses EEMD to decompose the raw solar energy time series into a set of simpler, more stationary Intrinsic Mode Functions (IMFs). Each IMF is then independently forecasted using a hybrid Temporal Convolutional Network (TCN) and Gated Recurrent Unit (GRU) model, which captures both long-range dependencies and sequential patterns. The final forecast is an aggregation of the predictions for each IMF. To enable practical deployment on resource-constrained IoT devices, we apply model pruning and quantization to significantly reduce the model's size and computational complexity without compromising its high accuracy. Experimental validation on three diverse datasets demonstrates that EEMD-TGNet achieves state-of-the-art performance with a 91.1\% R² score, 0.113 MSE, and 0.248 MAE on the GEFCom2014 benchmark, while reducing model size by 75\% through optimization. The proposed framework offers a significant advancement in edge intelligence for solar energy management, providing both superior accuracy and practical deployability.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -37,7 +39,7 @@ solar energy forecasting, deep learning, hybrid model, edge intelligence, EEMD, 
 \end{IEEEkeywords}
 
 \section{Introduction}
-The global shift towards renewable energy has positioned solar power as a cornerstone of sustainable energy systems, with solar capacity growing at an annual rate of 20% globally \cite{b2}. However, the variable nature of solar generation, dependent on meteorological conditions, poses a significant challenge to grid stability and energy management. Accurate solar energy forecasting is therefore critical for optimizing energy storage, scheduling, and demand-response strategies in smart grids. Even a 1% improvement in forecasting accuracy can save millions in operational costs \cite{b1}.
+The global shift towards renewable energy has positioned solar power as a cornerstone of sustainable energy systems, with solar capacity growing at an annual rate of 20\% globally \cite{b2}. However, the variable nature of solar generation, dependent on meteorological conditions, poses a significant challenge to grid stability and energy management. Accurate solar energy forecasting is therefore critical for optimizing energy storage, scheduling, and demand-response strategies in smart grids. Even a 1\% improvement in forecasting accuracy can save millions in operational costs \cite{b1}.
 
 Traditional forecasting models often struggle with the complex non-linear and non-stationary patterns in solar energy data. While deep learning models like LSTMs and GRUs have shown promise, their performance can be significantly improved through signal preprocessing. Decomposition methods, such as EEMD, enhance forecasting accuracy by simplifying the time series before prediction \cite{b1}. EEMD is particularly effective at separating a signal into its constituent oscillatory modes, making the forecasting task more tractable.
 
@@ -45,9 +47,9 @@ Concurrently, the rise of the Internet of Things (IoT) and edge computing enable
 
 This paper introduces a novel framework that combines the strengths of signal decomposition and advanced, efficient deep learning architectures. Our main contributions are:
 \begin{itemize}
-    \item A new hybrid forecasting model, EEMD-TGNet, that combines Ensemble Empirical Mode Decomposition (EEMD) with a Temporal Convolutional Network-Gated Recurrent Unit (TCN-GRU) architecture, achieving a 91.1% R² score on the GEFCom2014 benchmark dataset.
+    \item A new hybrid forecasting model, EEMD-TGNet, that combines Ensemble Empirical Mode Decomposition (EEMD) with a Temporal Convolutional Network-Gated Recurrent Unit (TCN-GRU) architecture, achieving a 91.1\% R² score on the GEFCom2014 benchmark dataset.
     \item A two-stage approach where the complex solar signal is first decomposed into simpler IMFs, and then each IMF is modeled by a dedicated TCN-GRU network, enabling better capture of both high-frequency and low-frequency patterns.
-    \item The application of model optimization techniques, including pruning and quantization, to create a lightweight version of the model suitable for deployment on edge devices, reducing model size by 75% with minimal accuracy degradation.
+    \item The application of model optimization techniques, including pruning and quantization, to create a lightweight version of the model suitable for deployment on edge devices, reducing model size by 75\% with minimal accuracy degradation.
     \item Comprehensive experimental validation demonstrating superior performance over state-of-the-art methods and practical feasibility for edge deployment.
 \end{itemize}
 
@@ -299,17 +301,19 @@ LSTM (Baseline) & 0.289 & 0.196 & 0.178 \\ \bottomrule
 \centering
 \caption{Impact of optimization on the EEMD-TGNet model.}
 \label{tab:optimization}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lcccc@{}}
 \toprule
 \textbf{Model Version} & \textbf{Parameters} & \textbf{Memory (MB)} & \textbf{Inference Time (ms)} & \textbf{MSE} \\ \midrule
 Original EEMD-TGNet & 63,750 & 0.24 & 45.2 & 0.113 \\
 Pruned EEMD-TGNet & 62,598 & 0.24 & 42.8 & 0.121 \\
 Pruned + Quantized & 62,598 & 0.06 & 12.3 & 0.127 \\ \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 
-Furthermore, Table \ref{tab:optimization} demonstrates the effectiveness of our optimization strategy. Pruning reduces the parameter count by approximately 1.8% (63,750 → 62,598 parameters), while quantization achieves a 4x memory reduction (0.24MB → 0.06MB) by converting 32-bit floating-point weights to 8-bit integers, resulting in a 75% overall memory footprint reduction. The combined optimizations result in minimal accuracy degradation (MSE increases from 0.113 to 0.127, a 12.4% increase) while reducing inference time by 73% (45.2ms → 12.3ms), making it suitable for real-time edge applications.
+Furthermore, Table \ref{tab:optimization} demonstrates the effectiveness of our optimization strategy. Pruning reduces the parameter count by approximately 1.8\% (63,750 → 62,598 parameters), while quantization achieves a 4x memory reduction (0.24MB → 0.06MB) by converting 32-bit floating-point weights to 8-bit integers, resulting in a 75\% overall memory footprint reduction. The combined optimizations result in minimal accuracy degradation (MSE increases from 0.113 to 0.127, a 12.4\% increase) while reducing inference time by 73\% (45.2ms → 12.3ms), making it suitable for real-time edge applications.
 
 \subsection{Comprehensive Ablation Study}
 We conduct systematic ablation studies across all three datasets to understand the contribution of each component. Table \ref{tab:comprehensive_ablation} demonstrates consistent patterns across datasets.
@@ -339,7 +343,7 @@ Our analysis reveals distinct temporal characteristics across datasets that vali
 Detailed error analysis shows that EEMD-TGNet exhibits lower error variance during high-irradiance periods compared to transition periods, which is expected behavior for solar forecasting. The conditional error analysis reveals MAE improvements of 60-70\% during nighttime periods and 25-35\% during daytime periods across all datasets, indicating superior performance in both challenging and favorable conditions.
 
 \subsection{Computational Complexity Analysis}
-The computational complexity analysis shows that our optimized model achieves significant efficiency gains: inference time of 12.3ms (73% reduction), memory footprint of 0.06MB (75% reduction), while maintaining competitive forecasting accuracy. The model's efficiency makes it suitable for deployment on edge devices with limited computational resources.
+The computational complexity analysis shows that our optimized model achieves significant efficiency gains: inference time of 12.3ms (73\% reduction), memory footprint of 0.06MB (75\% reduction), while maintaining competitive forecasting accuracy. The model's efficiency makes it suitable for deployment on edge devices with limited computational resources.
 
 
 \begin{figure*}[htbp]
@@ -385,9 +389,9 @@ Future work could explore adaptive online learning mechanisms for continuous mod
 \section{Conclusion}
 This paper introduced EEMD-TGNet, a novel hybrid deep learning framework for solar energy forecasting that combines Ensemble Empirical Mode Decomposition with an advanced TCN-GRU architecture. Our comprehensive experimental validation across three diverse datasets—Udata Solar, GEFCom2014, and Chinese State Grid—demonstrates remarkable consistency and superiority of the proposed approach.
 
-The key achievements include: (1) Consistent superior performance across all datasets with R² scores ranging from 88.3% to 92.1%, (2) Significant improvements over baseline methods with 42.2-45.0% MSE reduction compared to LSTM, (3) Statistical significance confirmed through Diebold-Mariano tests across all datasets, and (4) Comprehensive ablation studies validating the contribution of each architectural component.
+The key achievements include: (1) Consistent superior performance across all datasets with R² scores ranging from 88.3\% to 92.1\%, (2) Significant improvements over baseline methods with 42.2-45.0\% MSE reduction compared to LSTM, (3) Statistical significance confirmed through Diebold-Mariano tests across all datasets, and (4) Comprehensive ablation studies validating the contribution of each architectural component.
 
-Crucially, our edge optimization strategy achieves a 75% memory reduction and 73% inference time reduction with minimal accuracy degradation, making the sophisticated framework suitable for resource-constrained IoT devices. The temporal pattern analysis and conditional error analysis further validate the model's robustness across different solar generation profiles and environmental conditions.
+Crucially, our edge optimization strategy achieves a 75\% memory reduction and 73\% inference time reduction with minimal accuracy degradation, making the sophisticated framework suitable for resource-constrained IoT devices. The temporal pattern analysis and conditional error analysis further validate the model's robustness across different solar generation profiles and environmental conditions.
 
 The proposed EEMD-TGNet framework represents a significant advancement in solar energy forecasting, offering both state-of-the-art accuracy and practical deployability for real-world edge AI applications in smart energy management systems.
 
