@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  24 JUL 2025 10:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.30)  31 JUL 2025 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -361,85 +361,46 @@ Underfull \hbox (badness 1983) in paragraph at lines 50--51
 dist/fonts/enc/dvips/base/8r.enc}
 
 
-] [2]
-<../results/eemd_tgnet_architecture_professional.png, id=16, 1004.553pt x 643.2
+]
+<../results/eemd_tgnet_architecture_professional.png, id=13, 1004.553pt x 643.2
 03pt>
 File: ../results/eemd_tgnet_architecture_professional.png Graphic file (type pn
 g)
 <use ../results/eemd_tgnet_architecture_professional.png>
 Package pdftex.def Info: ../results/eemd_tgnet_architecture_professional.png  u
-sed on input line 100.
-(pdftex.def)             Requested size: 464.39685pt x 297.34914pt.
- [3] [4 <../results/eemd_tgnet_architecture_professional.png>]
-Underfull \hbox (badness 6725) in paragraph at lines 194--195
-[]\OT1/ptm/b/n/10 Advanced Hy-brid Mod-els: \OT1/ptm/m/n/10 CNN-LSTM-RF, CNN-
- []
+sed on input line 70.
+(pdftex.def)             Requested size: 252.0pt x 161.34996pt.
+ [2 <../results/eemd_tgnet_architecture_professional.png>]
+Underfull \hbox (badness 3536) in paragraph at lines 139--140
+[]\OT1/ptm/m/n/10 Cross-dataset anal-y-sis re-veals re-mark-able con-sis-tency:
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-[]\OT1/ptm/b/n/10 Vision-Based Mod-els: \OT1/ptm/m/n/10 ViT-GRU, Con-vL-STM, an
-d
- []
-
-
-Underfull \hbox (badness 1509) in paragraph at lines 198--199
-\OT1/ptm/m/n/10 Attention-LSTM in-te-grat-ing vi-sual pro-cess-ing ca-pa-bil-i-
-ties
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 262--263
-[]\OT1/ptm/m/n/10 Our ex-ten-sive com-par-i-son across 22 mod-els re-veals
- []
-
-[5]
-Underfull \hbox (badness 2990) in paragraph at lines 274--275
-[]\OT1/ptm/m/n/10 The second-best per-form-ing model, Wavelet-BiLSTM,
  []
 
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 316.
+            Default family used instead on input line 145.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 316.
+            Default family used instead on input line 145.
+
+Underfull \hbox (badness 2894) in paragraph at lines 145--146
+[]\OT1/ptm/m/n/10 Table II[] demon-strates edge de-ploy-ment ef-fec-tive-ness.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+\OT1/ptm/m/n/10 while quan-ti-za-tion achieves 4x mem-ory re-duc-tion
+ []
+
+
+Underfull \hbox (badness 4819) in paragraph at lines 145--146
+\OT1/ptm/m/n/10 (0.24MB\TS1/cmr/m/n/10 ^^Y\OT1/ptm/m/n/10 0.06MB), re-sult-ing 
+in 75% over-all mem-ory
+ []
+
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 316.
-<../results/advanced_performance_comparison.png, id=34, 1429.2597pt x 1132.23pt
->
-File: ../results/advanced_performance_comparison.png Graphic file (type png)
-<use ../results/advanced_performance_comparison.png>
-Package pdftex.def Info: ../results/advanced_performance_comparison.png  used o
-n input line 351.
-(pdftex.def)             Requested size: 516.0pt x 408.76001pt.
-<../results/model_category_analysis.png, id=35, 1718.0988pt x 566.115pt>
-File: ../results/model_category_analysis.png Graphic file (type png)
-<use ../results/model_category_analysis.png>
-Package pdftex.def Info: ../results/model_category_analysis.png  used on input 
-line 358.
-(pdftex.def)             Requested size: 516.0pt x 170.01721pt.
-<../results/improvement_analysis.png, id=36, 1717.617pt x 706.8006pt>
-File: ../results/improvement_analysis.png Graphic file (type png)
-<use ../results/improvement_analysis.png>
-Package pdftex.def Info: ../results/improvement_analysis.png  used on input lin
-e 365.
-(pdftex.def)             Requested size: 516.0pt x 212.333pt.
-<../results/performance_scatter_matrix.png, id=37, 1719.0624pt x 1132.4709pt>
-File: ../results/performance_scatter_matrix.png Graphic file (type png)
-<use ../results/performance_scatter_matrix.png>
-Package pdftex.def Info: ../results/performance_scatter_matrix.png  used on inp
-ut line 372.
-(pdftex.def)             Requested size: 516.0pt x 339.93398pt.
-<../results/model_ranking_heatmap.png, id=38, 1201.1274pt x 996.6033pt>
-File: ../results/model_ranking_heatmap.png Graphic file (type png)
-<use ../results/model_ranking_heatmap.png>
-Package pdftex.def Info: ../results/model_ranking_heatmap.png  used on input li
-ne 379.
-(pdftex.def)             Requested size: 516.0pt x 428.1509pt.
-[6] [7 <../results/advanced_performance_comparison.png> <../results/model_categ
-ory_analysis.png>] [8 <../results/improvement_analysis.png> <../results/perform
-ance_scatter_matrix.png>] [9 <../results/model_ranking_heatmap.png>]
+            Default family used instead on input line 162.
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -451,22 +412,20 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[10
-
-] (./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
+[3] (./EEMD_TGNet_Solar_Forecasting_IEEE.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4347 strings out of 476106
- 70348 string characters out of 5793933
- 1948975 words of memory out of 5000000
- 26310 multiletter control sequences out of 15000+600000
- 601922 words of font info for 126 fonts, out of 8000000 for 9000
+ 4298 strings out of 476106
+ 68471 string characters out of 5793933
+ 1943975 words of memory out of 5000000
+ 26262 multiletter control sequences out of 15000+600000
+ 600815 words of font info for 125 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 57i,14n,65p,1574b,353s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,14n,65p,856b,353s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/anhpt95te/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000
 .600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
@@ -480,11 +439,11 @@ ic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (10 pages, 3660331 byte
-s).
+Output written on EEMD_TGNet_Solar_Forecasting_IEEE.pdf (3 pages, 494208 bytes)
+.
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
