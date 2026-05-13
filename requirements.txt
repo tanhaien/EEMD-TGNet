@@ -25,8 +25,8 @@ notebook>=6.4.0
 
 # Additional Utilities
 tqdm>=4.64.0
-pickle5>=0.0.11
-warnings>=0.1.0
+
+
 
 # Optional: CUDA support (uncomment if using GPU)
 # torch-audio>=0.12.0

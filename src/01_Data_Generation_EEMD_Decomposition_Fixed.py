@@ -664,16 +664,46 @@ print(f"Number of signal IMFs: {len(solar_prepared['imf_datasets'])}")
 for i, dataset in enumerate(solar_prepared['imf_datasets']):
     print(f"  IMF {dataset['imf_index']}: X shape {dataset['X'].shape}, y shape {dataset['y'].shape}")
 
-# Save prepared data
-import pickle
+# Save prepared data securely without pickle
+import json
 
-with open('gefcom_prepared_data.pkl', 'wb') as f:
-    pickle.dump(gefcom_prepared, f)
+def save_safe_data(data, filename):
+    import numpy as np
+    npz_data = {}
+    metadata = {
+        'window_size': data.get('window_size', 24),
+        'forecast_horizon': data.get('forecast_horizon', 6),
+        'imfs': {}
+    }
 
-with open('alibaba_prepared_data.pkl', 'wb') as f:
-    pickle.dump(alibaba_prepared, f)
+    for i, imf_data in enumerate(data['imf_datasets']):
+        imf_prefix = f'imf_{i}_'
+        npz_data[imf_prefix + 'X'] = imf_data['X']
+        npz_data[imf_prefix + 'y'] = imf_data['y']
 
-print("\nPrepared datasets saved to pickle files.")
+        scaler_dict = {}
+        if hasattr(imf_data['scaler'], 'mean_'):
+            scaler_dict['mean_'] = imf_data['scaler'].mean_.tolist()
+        if hasattr(imf_data['scaler'], 'var_'):
+            scaler_dict['var_'] = imf_data['scaler'].var_.tolist()
+        if hasattr(imf_data['scaler'], 'scale_'):
+            scaler_dict['scale_'] = imf_data['scaler'].scale_.tolist()
+        if hasattr(imf_data['scaler'], 'n_samples_seen_'):
+            scaler_dict['n_samples_seen_'] = int(imf_data['scaler'].n_samples_seen_)
+
+        metadata['imfs'][str(i)] = {
+            'imf_index': int(imf_data['imf_index']),
+            'scaler': scaler_dict
+        }
+
+    np.savez(filename + '.npz', **npz_data)
+    with open(filename + '_meta.json', 'w') as f:
+        json.dump(metadata, f)
+
+save_safe_data(gefcom_prepared, 'gefcom_prepared_data')
+save_safe_data(alibaba_prepared, 'alibaba_prepared_data')
+
+print("\nPrepared datasets saved securely to npz and json files.")
 print("Ready for model training in the next notebook!")
 
 
