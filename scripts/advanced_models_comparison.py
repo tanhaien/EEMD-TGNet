@@ -272,10 +272,7 @@ class AdvancedSolarForecastingComparison:
             category_scores = {}
             
             for category, models in categories.items():
-                mse_scores = []
-                for model in models:
-                    if model in dataset_results:
-                        mse_scores.append(dataset_results[model]['MSE'])
+                mse_scores = [dataset_results[model]['MSE'] for model in models if model in dataset_results]
                 
                 if mse_scores:
                     avg_mse = np.mean(mse_scores)
