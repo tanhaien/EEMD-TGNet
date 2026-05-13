@@ -275,38 +275,6 @@ class TCNGRU(nn.Module):
         return output
 
 
-# Test the model architecture
-def test_model_architecture():
-    print("Testing TCN-GRU architecture...")
-    
-    # Test with GEFCom data dimensions
-    batch_size = 32
-    input_size = 31  # 24 history + 7 features
-    output_size = 6   # 6-step forecast
-    
-    model = TCNGRU(
-        input_size=input_size,
-        tcn_channels=[32, 64, 32],
-        gru_hidden_size=64,
-        output_size=output_size,
-        tcn_kernel_size=3,
-        tcn_dropout=0.1,
-        gru_dropout=0.1
-    )
-    
-    # Test forward pass
-    x = torch.randn(batch_size, input_size)
-    output = model(x)
-    
-    print(f"Input shape: {x.shape}")
-    print(f"Output shape: {output.shape}")
-    print(f"Model parameters: {sum(p.numel() for p in model.parameters()):,}")
-    
-    return model
-
-test_model = test_model_architecture()
-
-
 # ## 3. Training and Evaluation Functions
 
 # In[4]:
@@ -529,20 +497,6 @@ def train_eemd_tgnet_models(dataset, dataset_name, max_imfs=3):
     return trained_models
 
 
-# Train EEMD-TGNet models
-gefcom_models = train_eemd_tgnet_models(gefcom_data, "GEFCom2014", max_imfs=3)
-alibaba_models = train_eemd_tgnet_models(alibaba_data, "Alibaba Competition", max_imfs=2)
-
-print(f"\nEEMD-TGNet training completed!")
-print(f"GEFCom models trained: {len(gefcom_models)}")
-print(f"Alibaba models trained: {len(alibaba_models)}")
-
-
-# ## 5. Model Optimization (Pruning and Quantization)
-
-# In[6]:
-
-
 def apply_model_optimization(model, pruning_ratio=0.3):
     """
     Apply pruning and quantization to a model
@@ -619,13 +573,6 @@ def optimize_all_models(trained_models, dataset_name):
         optimized_models.append(optimized_info)
     
     return optimized_models
-
-
-# Optimize models
-gefcom_optimized = optimize_all_models(gefcom_models, "GEFCom2014")
-alibaba_optimized = optimize_all_models(alibaba_models, "Alibaba Competition")
-
-print("\nModel optimization completed!")
 
 
 # ## 6. Baseline Models Training
@@ -741,56 +688,70 @@ def train_baseline_models(dataset, dataset_name):
     return trained_baselines
 
 
-# Train baseline models
-gefcom_baselines = train_baseline_models(gefcom_data, "GEFCom2014")
-alibaba_baselines = train_baseline_models(alibaba_data, "Alibaba Competition")
-
-print(f"\nBaseline training completed!")
-print(f"GEFCom baselines: {list(gefcom_baselines.keys())}")
-print(f"Alibaba baselines: {list(alibaba_baselines.keys())}")
-
-
 # ## 7. Save Results
 
 # In[8]:
 
 
-# Save all training results
-training_results = {
-    'gefcom_models': gefcom_optimized,
-    'alibaba_models': alibaba_optimized,
-    'gefcom_baselines': gefcom_baselines,
-    'alibaba_baselines': alibaba_baselines,
-    'device': str(device)
-}
+if __name__ == '__main__':
+    # Train EEMD-TGNet models
+    gefcom_models = train_eemd_tgnet_models(gefcom_data, "GEFCom2014", max_imfs=3)
+    alibaba_models = train_eemd_tgnet_models(alibaba_data, "Alibaba Competition", max_imfs=2)
 
-with open('training_results.pkl', 'wb') as f:
-    pickle.dump(training_results, f)
+    print(f"\nEEMD-TGNet training completed!")
+    print(f"GEFCom models trained: {len(gefcom_models)}")
+    print(f"Alibaba models trained: {len(alibaba_models)}")
 
-print("Training results saved to 'training_results.pkl'")
+    # Optimize models
+    gefcom_optimized = optimize_all_models(gefcom_models, "GEFCom2014")
+    alibaba_optimized = optimize_all_models(alibaba_models, "Alibaba Competition")
 
-# Print summary
-print("\n" + "="*70)
-print("TRAINING SUMMARY")
-print("="*70)
+    print("\nModel optimization completed!")
 
-print(f"\n1. EEMD-TGNET MODELS:")
-print(f"   - GEFCom dataset: {len(gefcom_optimized)} IMF models trained")
-print(f"   - Alibaba dataset: {len(alibaba_optimized)} IMF models trained")
-print(f"   - Each model optimized with pruning and quantization")
+    # Train baseline models
+    gefcom_baselines = train_baseline_models(gefcom_data, "GEFCom2014")
+    alibaba_baselines = train_baseline_models(alibaba_data, "Alibaba Competition")
 
-print(f"\n2. BASELINE MODELS:")
-print(f"   - GEFCom baselines: {list(gefcom_baselines.keys())}")
-print(f"   - Alibaba baselines: {list(alibaba_baselines.keys())}")
+    print(f"\nBaseline training completed!")
+    print(f"GEFCom baselines: {list(gefcom_baselines.keys())}")
+    print(f"Alibaba baselines: {list(alibaba_baselines.keys())}")
 
-print(f"\n3. OPTIMIZATION RESULTS:")
-avg_compression = np.mean([model['compression_ratio'] for model in gefcom_optimized])
-print(f"   - Average parameter reduction: {avg_compression:.1f}%")
+    # Save all training results
+    training_results = {
+        'gefcom_models': gefcom_optimized,
+        'alibaba_models': alibaba_optimized,
+        'gefcom_baselines': gefcom_baselines,
+        'alibaba_baselines': alibaba_baselines,
+        'device': str(device)
+    }
 
-print(f"\n4. NEXT STEPS:")
-print(f"   - Run notebook 3 for comprehensive evaluation")
-print(f"   - Generate performance comparison tables")
-print(f"   - Create visualizations for the paper")
+    with open('training_results.pkl', 'wb') as f:
+        pickle.dump(training_results, f)
 
-print("\n" + "="*70)
+    print("Training results saved to 'training_results.pkl'")
+
+    # Print summary
+    print("\n" + "="*70)
+    print("TRAINING SUMMARY")
+    print("="*70)
+
+    print(f"\n1. EEMD-TGNET MODELS:")
+    print(f"   - GEFCom dataset: {len(gefcom_optimized)} IMF models trained")
+    print(f"   - Alibaba dataset: {len(alibaba_optimized)} IMF models trained")
+    print(f"   - Each model optimized with pruning and quantization")
+
+    print(f"\n2. BASELINE MODELS:")
+    print(f"   - GEFCom baselines: {list(gefcom_baselines.keys())}")
+    print(f"   - Alibaba baselines: {list(alibaba_baselines.keys())}")
+
+    print(f"\n3. OPTIMIZATION RESULTS:")
+    avg_compression = np.mean([model['compression_ratio'] for model in gefcom_optimized])
+    print(f"   - Average parameter reduction: {avg_compression:.1f}%")
+
+    print(f"\n4. NEXT STEPS:")
+    print(f"   - Run notebook 3 for comprehensive evaluation")
+    print(f"   - Generate performance comparison tables")
+    print(f"   - Create visualizations for the paper")
+
+    print("\n" + "="*70)
 
