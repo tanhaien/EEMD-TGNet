@@ -17,7 +17,6 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
-import torch.nn.functional as F
 from torch.nn.utils import prune
 
 import numpy as np
