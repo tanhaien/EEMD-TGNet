@@ -48,13 +48,47 @@ sns.set_palette("husl")
 # In[2]:
 
 
-# Load prepared datasets
-try:
-    with open('gefcom_prepared_data.pkl', 'rb') as f:
-        gefcom_data = pickle.load(f)
+# Load prepared datasets securely
+import json
+def load_safe_data(filename):
+    with open(filename + '_meta.json', 'r') as f:
+        metadata = json.load(f)
+
+    npz_data = np.load(filename + '.npz', allow_pickle=False)
     
-    with open('alibaba_prepared_data.pkl', 'rb') as f:
-        alibaba_data = pickle.load(f)
+    data = {
+        'window_size': metadata['window_size'],
+        'forecast_horizon': metadata['forecast_horizon'],
+        'imf_datasets': []
+    }
+
+    for i in range(len(metadata['imfs'])):
+        meta = metadata['imfs'][str(i)]
+        imf_prefix = f'imf_{i}_'
+
+        scaler = StandardScaler()
+        if 'scaler' in meta:
+            if 'mean_' in meta['scaler']:
+                scaler.mean_ = np.array(meta['scaler']['mean_'])
+            if 'var_' in meta['scaler']:
+                scaler.var_ = np.array(meta['scaler']['var_'])
+            if 'scale_' in meta['scaler']:
+                scaler.scale_ = np.array(meta['scaler']['scale_'])
+            if 'n_samples_seen_' in meta['scaler']:
+                scaler.n_samples_seen_ = meta['scaler']['n_samples_seen_']
+
+        data['imf_datasets'].append({
+            'X': npz_data[imf_prefix + 'X'],
+            'y': npz_data[imf_prefix + 'y'],
+            'imf_index': meta['imf_index'],
+            'scaler': scaler
+        })
+
+    return data
+
+try:
+    gefcom_data = load_safe_data('gefcom_prepared_data')
+    alibaba_data = load_safe_data('alibaba_prepared_data')
     
     print("Loaded prepared datasets successfully!")
     print(f"GEFCom dataset: {len(gefcom_data['imf_datasets'])} IMFs")
