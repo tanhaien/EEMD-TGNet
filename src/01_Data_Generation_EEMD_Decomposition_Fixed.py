@@ -97,78 +97,79 @@ def load_and_prepare_solar_data(filepath='data_udata_solar.csv'):
     return df.reset_index()
 
 # Load and prepare the dataset
-print("Loading and preparing data from data_udata_solar.csv...")
-solar_data = load_and_prepare_solar_data()
+if __name__ == '__main__':
+    print("Loading and preparing data from data_udata_solar.csv...")
+    solar_data = load_and_prepare_solar_data()
 
-# For compatibility with the rest of the notebook, we'll use solar_data for both 'alibaba' and 'gefcom' contexts.
-# In a real scenario, you might split the data or use different subsets.
-alibaba_data = solar_data.copy()
-gefcom_data = solar_data.copy()
+    # For compatibility with the rest of the notebook, we'll use solar_data for both 'alibaba' and 'gefcom' contexts.
+    # In a real scenario, you might split the data or use different subsets.
+    alibaba_data = solar_data.copy()
+    gefcom_data = solar_data.copy()
 
-print(f"Solar dataset shape: {solar_data.shape}")
+    print(f"Solar dataset shape: {solar_data.shape}")
 
-# Display sample data
-print("\nSolar data sample:")
-print(solar_data.head(10))
-
-
-# In[3]:
+    # Display sample data
+    print("\nSolar data sample:")
+    print(solar_data.head(10))
 
 
-# Visualize the loaded data
-fig, axes = plt.subplots(3, 2, figsize=(15, 12))
+    # In[3]:
 
-# Solar power time series
-axes[0, 0].plot(solar_data['timestamp'], solar_data['solar_power'])
-axes[0, 0].set_title('Solar Power Generation (Full Dataset)')
-axes[0, 0].set_ylabel('Power (kW)')
-axes[0, 0].grid(True)
 
-# Daily pattern
-daily_avg = solar_data.groupby('hour_of_day')['solar_power'].mean()
-axes[0, 1].plot(daily_avg.index, daily_avg.values, 'o-')
-axes[0, 1].set_title('Average Daily Solar Power Pattern')
-axes[0, 1].set_xlabel('Hour of Day')
-axes[0, 1].set_ylabel('Power (kW)')
-axes[0, 1].grid(True)
+    # Visualize the loaded data
+    fig, axes = plt.subplots(3, 2, figsize=(15, 12))
 
-# Seasonal pattern
-monthly_avg = solar_data.groupby('month')['solar_power'].mean()
-axes[1, 0].plot(monthly_avg.index, monthly_avg.values, 's-')
-axes[1, 0].set_title('Monthly Average Solar Power')
-axes[1, 0].set_xlabel('Month')
-axes[1, 0].set_ylabel('Power (kW)')
-axes[1, 0].grid(True)
+    # Solar power time series
+    axes[0, 0].plot(solar_data['timestamp'], solar_data['solar_power'])
+    axes[0, 0].set_title('Solar Power Generation (Full Dataset)')
+    axes[0, 0].set_ylabel('Power (kW)')
+    axes[0, 0].grid(True)
 
-# Weather correlation
-axes[1, 1].scatter(solar_data['solar_irradiance'], solar_data['solar_power'], 
-                   alpha=0.5, s=1)
-axes[1, 1].set_title('Solar Power vs Irradiance')
-axes[1, 1].set_xlabel('Solar Irradiance (W/m²)')
-axes[1, 1].set_ylabel('Power (kW)')
-axes[1, 1].grid(True)
+    # Daily pattern
+    daily_avg = solar_data.groupby('hour_of_day')['solar_power'].mean()
+    axes[0, 1].plot(daily_avg.index, daily_avg.values, 'o-')
+    axes[0, 1].set_title('Average Daily Solar Power Pattern')
+    axes[0, 1].set_xlabel('Hour of Day')
+    axes[0, 1].set_ylabel('Power (kW)')
+    axes[0, 1].grid(True)
 
-# Temperature effect
-axes[2, 0].scatter(solar_data['temperature'], solar_data['solar_power'], 
-                   alpha=0.5, s=1, c=solar_data['solar_irradiance'], cmap='viridis')
-axes[2, 0].set_title('Solar Power vs Temperature (colored by irradiance)')
-axes[2, 0].set_xlabel('Temperature (°C)')
-axes[2, 0].set_ylabel('Power (kW)')
-axes[2, 0].grid(True)
+    # Seasonal pattern
+    monthly_avg = solar_data.groupby('month')['solar_power'].mean()
+    axes[1, 0].plot(monthly_avg.index, monthly_avg.values, 's-')
+    axes[1, 0].set_title('Monthly Average Solar Power')
+    axes[1, 0].set_xlabel('Month')
+    axes[1, 0].set_ylabel('Power (kW)')
+    axes[1, 0].grid(True)
 
-# Distribution
-axes[2, 1].hist(solar_data['solar_power'], bins=50, alpha=0.7, edgecolor='black')
-axes[2, 1].set_title('Solar Power Distribution')
-axes[2, 1].set_xlabel('Power (kW)')
-axes[2, 1].set_ylabel('Frequency')
-axes[2, 1].grid(True)
+    # Weather correlation
+    axes[1, 1].scatter(solar_data['solar_irradiance'], solar_data['solar_power'],
+                       alpha=0.5, s=1)
+    axes[1, 1].set_title('Solar Power vs Irradiance')
+    axes[1, 1].set_xlabel('Solar Irradiance (W/m²)')
+    axes[1, 1].set_ylabel('Power (kW)')
+    axes[1, 1].grid(True)
 
-plt.tight_layout()
-# plt.show() # Commented out for automated execution
+    # Temperature effect
+    axes[2, 0].scatter(solar_data['temperature'], solar_data['solar_power'],
+                       alpha=0.5, s=1, c=solar_data['solar_irradiance'], cmap='viridis')
+    axes[2, 0].set_title('Solar Power vs Temperature (colored by irradiance)')
+    axes[2, 0].set_xlabel('Temperature (°C)')
+    axes[2, 0].set_ylabel('Power (kW)')
+    axes[2, 0].grid(True)
 
-# Print statistics
-print("\nDataset Statistics:")
-print(solar_data[['solar_power', 'solar_irradiance', 'temperature', 'wind_speed']].describe())
+    # Distribution
+    axes[2, 1].hist(solar_data['solar_power'], bins=50, alpha=0.7, edgecolor='black')
+    axes[2, 1].set_title('Solar Power Distribution')
+    axes[2, 1].set_xlabel('Power (kW)')
+    axes[2, 1].set_ylabel('Frequency')
+    axes[2, 1].grid(True)
+
+    plt.tight_layout()
+    # plt.show() # Commented out for automated execution
+
+    # Print statistics
+    print("\nDataset Statistics:")
+    print(solar_data[['solar_power', 'solar_irradiance', 'temperature', 'wind_speed']].describe())
 
 
 # ## 2. EEMD Implementation
@@ -307,47 +308,48 @@ def perform_eemd(signal, use_pyemd=True):
 
 # Prepare data for EEMD
 # Use the full solar_data for decomposition
-solar_signal = solar_data['solar_power'].values
-print(f"Decomposing solar signal of length: {len(solar_signal)}")
+if __name__ == '__main__':
+    solar_signal = solar_data['solar_power'].values
+    print(f"Decomposing solar signal of length: {len(solar_signal)}")
 
-# Perform EEMD decomposition
-imfs = perform_eemd(solar_signal)
-print(f"Number of IMFs extracted: {len(imfs)}")
-
-
-# In[5]:
+    # Perform EEMD decomposition
+    imfs = perform_eemd(solar_signal)
+    print(f"Number of IMFs extracted: {len(imfs)}")
 
 
-# Visualize EEMD decomposition results
-fig, axes = plt.subplots(len(imfs) + 1, 1, figsize=(15, 2 * (len(imfs) + 1)))
-
-# Original signal
-axes[0].plot(solar_signal, 'b-', linewidth=1)
-axes[0].set_title('Original Solar Power Signal', fontsize=12, fontweight='bold')
-axes[0].set_ylabel('Power (kW)')
-axes[0].grid(True, alpha=0.3)
-
-# IMFs
-colors = plt.cm.Set3(np.linspace(0, 1, len(imfs)))
-for i, imf in enumerate(imfs):
-    axes[i + 1].plot(imf, color=colors[i], linewidth=1)
-    if i < len(imfs) - 1:
-        axes[i + 1].set_title(f'IMF {i + 1}', fontsize=10)
-    else:
-        axes[i + 1].set_title('Residue', fontsize=10)
-    axes[i + 1].set_ylabel('Amplitude')
-    axes[i + 1].grid(True, alpha=0.3)
-
-axes[-1].set_xlabel('Time (hours)')
-plt.tight_layout()
-# plt.show() # Commented out for automated execution
+    # In[5]:
 
 
-# Verify reconstruction
-reconstructed = np.sum(imfs, axis=0)
-reconstruction_error = np.mean(np.abs(solar_signal - reconstructed))
-print(f"Reconstruction error: {reconstruction_error:.6f}")
-print(f"Relative error: {reconstruction_error / np.mean(np.abs(solar_signal)) * 100:.4f}%")
+    # Visualize EEMD decomposition results
+    fig, axes = plt.subplots(len(imfs) + 1, 1, figsize=(15, 2 * (len(imfs) + 1)))
+
+    # Original signal
+    axes[0].plot(solar_signal, 'b-', linewidth=1)
+    axes[0].set_title('Original Solar Power Signal', fontsize=12, fontweight='bold')
+    axes[0].set_ylabel('Power (kW)')
+    axes[0].grid(True, alpha=0.3)
+
+    # IMFs
+    colors = plt.cm.Set3(np.linspace(0, 1, len(imfs)))
+    for i, imf in enumerate(imfs):
+        axes[i + 1].plot(imf, color=colors[i], linewidth=1)
+        if i < len(imfs) - 1:
+            axes[i + 1].set_title(f'IMF {i + 1}', fontsize=10)
+        else:
+            axes[i + 1].set_title('Residue', fontsize=10)
+        axes[i + 1].set_ylabel('Amplitude')
+        axes[i + 1].grid(True, alpha=0.3)
+
+    axes[-1].set_xlabel('Time (hours)')
+    plt.tight_layout()
+    # plt.show() # Commented out for automated execution
+
+
+    # Verify reconstruction
+    reconstructed = np.sum(imfs, axis=0)
+    reconstruction_error = np.mean(np.abs(solar_signal - reconstructed))
+    print(f"Reconstruction error: {reconstruction_error:.6f}")
+    print(f"Relative error: {reconstruction_error / np.mean(np.abs(solar_signal)) * 100:.4f}%")
 
 
 # ## 3. Autocorrelation Analysis for Noise Identification
@@ -404,82 +406,83 @@ def analyze_imf_characteristics(imfs, signal_length):
     return pd.DataFrame(characteristics)
 
 # Analyze IMF characteristics
-imf_analysis = analyze_imf_characteristics(imfs, len(solar_signal))
-print("IMF Characteristics Analysis:")
-print(imf_analysis.round(4))
+if __name__ == '__main__':
+    imf_analysis = analyze_imf_characteristics(imfs, len(solar_signal))
+    print("IMF Characteristics Analysis:")
+    print(imf_analysis.round(4))
 
-# Identify noise components (low autocorrelation + low energy)
-noise_threshold_autocorr = 0.1
-noise_threshold_energy = 2.0  # Relative energy percentage
+    # Identify noise components (low autocorrelation + low energy)
+    noise_threshold_autocorr = 0.1
+    noise_threshold_energy = 2.0  # Relative energy percentage
 
-noise_imfs = imf_analysis[
-    (imf_analysis['Autocorr_Lag1'].abs() < noise_threshold_autocorr) & 
-    (imf_analysis['Relative_Energy_%'] < noise_threshold_energy) &
-    (imf_analysis['IMF'] != 'Residue')
-]['IMF'].tolist()
+    noise_imfs = imf_analysis[
+        (imf_analysis['Autocorr_Lag1'].abs() < noise_threshold_autocorr) &
+        (imf_analysis['Relative_Energy_%'] < noise_threshold_energy) &
+        (imf_analysis['IMF'] != 'Residue')
+    ]['IMF'].tolist()
 
-print(f"\nIdentified noise IMFs: {noise_imfs}")
-print(f"Signal IMFs to keep: {[imf for imf in imf_analysis['IMF'].tolist() if imf not in noise_imfs]}")
-
-
-# In[7]:
+    print(f"\nIdentified noise IMFs: {noise_imfs}")
+    print(f"Signal IMFs to keep: {[imf for imf in imf_analysis['IMF'].tolist() if imf not in noise_imfs]}")
 
 
-# Visualize IMF characteristics
-fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+    # In[7]:
 
-# Autocorrelation vs Energy
-colors = ['red' if imf in noise_imfs else 'blue' for imf in imf_analysis['IMF']]
-axes[0, 0].scatter(imf_analysis['Autocorr_Lag1'], imf_analysis['Relative_Energy_%'], 
-                   c=colors, s=60, alpha=0.7)
-axes[0, 0].axvline(noise_threshold_autocorr, color='red', linestyle='--', alpha=0.5)
-axes[0, 0].axhline(noise_threshold_energy, color='red', linestyle='--', alpha=0.5)
-axes[0, 0].set_xlabel('Autocorrelation (Lag 1)')
-axes[0, 0].set_ylabel('Relative Energy (%)')
-axes[0, 0].set_title('IMF Classification: Signal vs Noise')
-axes[0, 0].grid(True, alpha=0.3)
 
-# Add labels for each point
-for i, row in imf_analysis.iterrows():
-    axes[0, 0].annotate(str(row['IMF']), 
-                       (row['Autocorr_Lag1'], row['Relative_Energy_%']),
-                       xytext=(5, 5), textcoords='offset points', fontsize=8)
+    # Visualize IMF characteristics
+    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
 
-# Energy distribution
-bars = axes[0, 1].bar(range(len(imfs)), imf_analysis['Relative_Energy_%'], 
-                      color=colors, alpha=0.7)
-axes[0, 1].set_xlabel('IMF Index')
-axes[0, 1].set_ylabel('Relative Energy (%)')
-axes[0, 1].set_title('Energy Distribution Across IMFs')
-axes[0, 1].set_xticks(range(len(imfs)))
-axes[0, 1].set_xticklabels([str(imf) for imf in imf_analysis['IMF']], rotation=45)
-axes[0, 1].grid(True, alpha=0.3)
+    # Autocorrelation vs Energy
+    colors = ['red' if imf in noise_imfs else 'blue' for imf in imf_analysis['IMF']]
+    axes[0, 0].scatter(imf_analysis['Autocorr_Lag1'], imf_analysis['Relative_Energy_%'],
+                       c=colors, s=60, alpha=0.7)
+    axes[0, 0].axvline(noise_threshold_autocorr, color='red', linestyle='--', alpha=0.5)
+    axes[0, 0].axhline(noise_threshold_energy, color='red', linestyle='--', alpha=0.5)
+    axes[0, 0].set_xlabel('Autocorrelation (Lag 1)')
+    axes[0, 0].set_ylabel('Relative Energy (%)')
+    axes[0, 0].set_title('IMF Classification: Signal vs Noise')
+    axes[0, 0].grid(True, alpha=0.3)
 
-# Frequency content
-axes[1, 0].bar(range(len(imfs)), imf_analysis['Mean_Frequency'], 
-               color=colors, alpha=0.7)
-axes[1, 0].set_xlabel('IMF Index')
-axes[1, 0].set_ylabel('Mean Frequency (cycles/hour)')
-axes[1, 0].set_title('Frequency Content of IMFs')
-axes[1, 0].set_xticks(range(len(imfs)))
-axes[1, 0].set_xticklabels([str(imf) for imf in imf_analysis['IMF']], rotation=45)
-axes[1, 0].grid(True, alpha=0.3)
+    # Add labels for each point
+    for i, row in imf_analysis.iterrows():
+        axes[0, 0].annotate(str(row['IMF']),
+                           (row['Autocorr_Lag1'], row['Relative_Energy_%']),
+                           xytext=(5, 5), textcoords='offset points', fontsize=8)
 
-# Autocorrelation plot
-axes[1, 1].plot(imf_analysis.index, imf_analysis['Autocorr_Lag1'], 'o-', markersize=8)
-axes[1, 1].axhline(noise_threshold_autocorr, color='red', linestyle='--', alpha=0.5, 
-                   label=f'Noise threshold ({noise_threshold_autocorr})')
-axes[1, 1].axhline(-noise_threshold_autocorr, color='red', linestyle='--', alpha=0.5)
-axes[1, 1].set_xlabel('IMF Index')
-axes[1, 1].set_ylabel('Autocorrelation (Lag 1)')
-axes[1, 1].set_title('Autocorrelation Analysis')
-axes[1, 1].set_xticks(range(len(imfs)))
-axes[1, 1].set_xticklabels([str(imf) for imf in imf_analysis['IMF']], rotation=45)
-axes[1, 1].grid(True, alpha=0.3)
-axes[1, 1].legend()
+    # Energy distribution
+    bars = axes[0, 1].bar(range(len(imfs)), imf_analysis['Relative_Energy_%'],
+                          color=colors, alpha=0.7)
+    axes[0, 1].set_xlabel('IMF Index')
+    axes[0, 1].set_ylabel('Relative Energy (%)')
+    axes[0, 1].set_title('Energy Distribution Across IMFs')
+    axes[0, 1].set_xticks(range(len(imfs)))
+    axes[0, 1].set_xticklabels([str(imf) for imf in imf_analysis['IMF']], rotation=45)
+    axes[0, 1].grid(True, alpha=0.3)
 
-plt.tight_layout()
-# plt.show() # Commented out for automated execution
+    # Frequency content
+    axes[1, 0].bar(range(len(imfs)), imf_analysis['Mean_Frequency'],
+                   color=colors, alpha=0.7)
+    axes[1, 0].set_xlabel('IMF Index')
+    axes[1, 0].set_ylabel('Mean Frequency (cycles/hour)')
+    axes[1, 0].set_title('Frequency Content of IMFs')
+    axes[1, 0].set_xticks(range(len(imfs)))
+    axes[1, 0].set_xticklabels([str(imf) for imf in imf_analysis['IMF']], rotation=45)
+    axes[1, 0].grid(True, alpha=0.3)
+
+    # Autocorrelation plot
+    axes[1, 1].plot(imf_analysis.index, imf_analysis['Autocorr_Lag1'], 'o-', markersize=8)
+    axes[1, 1].axhline(noise_threshold_autocorr, color='red', linestyle='--', alpha=0.5,
+                       label=f'Noise threshold ({noise_threshold_autocorr})')
+    axes[1, 1].axhline(-noise_threshold_autocorr, color='red', linestyle='--', alpha=0.5)
+    axes[1, 1].set_xlabel('IMF Index')
+    axes[1, 1].set_ylabel('Autocorrelation (Lag 1)')
+    axes[1, 1].set_title('Autocorrelation Analysis')
+    axes[1, 1].set_xticks(range(len(imfs)))
+    axes[1, 1].set_xticklabels([str(imf) for imf in imf_analysis['IMF']], rotation=45)
+    axes[1, 1].grid(True, alpha=0.3)
+    axes[1, 1].legend()
+
+    plt.tight_layout()
+    # plt.show() # Commented out for automated execution
 
 
 # ## 4. Signal Reconstruction without Noise Components
@@ -503,58 +506,59 @@ def reconstruct_denoised_signal(imfs, noise_imf_indices):
         return np.zeros_like(imfs[0])
 
 # Convert noise IMF names to indices
-noise_indices = []
-for imf_name in noise_imfs:
-    if isinstance(imf_name, (int, float)):
-        noise_indices.append(int(imf_name))
-    elif str(imf_name).isdigit():
-        noise_indices.append(int(imf_name))
+if __name__ == '__main__':
+    noise_indices = []
+    for imf_name in noise_imfs:
+        if isinstance(imf_name, (int, float)):
+            noise_indices.append(int(imf_name))
+        elif str(imf_name).isdigit():
+            noise_indices.append(int(imf_name))
 
-# Reconstruct denoised signal
-denoised_signal = reconstruct_denoised_signal(imfs, noise_indices)
+    # Reconstruct denoised signal
+    denoised_signal = reconstruct_denoised_signal(imfs, noise_indices)
 
-# Compare original, noisy, and denoised signals
-fig, axes = plt.subplots(3, 1, figsize=(15, 10))
+    # Compare original, noisy, and denoised signals
+    fig, axes = plt.subplots(3, 1, figsize=(15, 10))
 
-time_axis = np.arange(len(solar_signal))
+    time_axis = np.arange(len(solar_signal))
 
-# Original signal
-axes[0].plot(time_axis, solar_signal, 'b-', linewidth=1, label='Original Signal')
-axes[0].set_title('Original Solar Power Signal')
-axes[0].set_ylabel('Power (kW)')
-axes[0].grid(True, alpha=0.3)
-axes[0].legend()
+    # Original signal
+    axes[0].plot(time_axis, solar_signal, 'b-', linewidth=1, label='Original Signal')
+    axes[0].set_title('Original Solar Power Signal')
+    axes[0].set_ylabel('Power (kW)')
+    axes[0].grid(True, alpha=0.3)
+    axes[0].legend()
 
-# Reconstructed (with noise)
-reconstructed_full = np.sum(imfs, axis=0)
-axes[1].plot(time_axis, reconstructed_full, 'g-', linewidth=1, label='Reconstructed (All IMFs)')
-axes[1].set_title('Reconstructed Signal (All IMFs)')
-axes[1].set_ylabel('Power (kW)')
-axes[1].grid(True, alpha=0.3)
-axes[1].legend()
+    # Reconstructed (with noise)
+    reconstructed_full = np.sum(imfs, axis=0)
+    axes[1].plot(time_axis, reconstructed_full, 'g-', linewidth=1, label='Reconstructed (All IMFs)')
+    axes[1].set_title('Reconstructed Signal (All IMFs)')
+    axes[1].set_ylabel('Power (kW)')
+    axes[1].grid(True, alpha=0.3)
+    axes[1].legend()
 
-# Denoised signal
-axes[2].plot(time_axis, denoised_signal, 'r-', linewidth=1, label='Denoised Signal')
-axes[2].plot(time_axis, solar_signal, 'b--', alpha=0.5, linewidth=1, label='Original')
-axes[2].set_title('Denoised Signal (Noise IMFs Removed)')
-axes[2].set_xlabel('Time (hours)')
-axes[2].set_ylabel('Power (kW)')
-axes[2].grid(True, alpha=0.3)
-axes[2].legend()
+    # Denoised signal
+    axes[2].plot(time_axis, denoised_signal, 'r-', linewidth=1, label='Denoised Signal')
+    axes[2].plot(time_axis, solar_signal, 'b--', alpha=0.5, linewidth=1, label='Original')
+    axes[2].set_title('Denoised Signal (Noise IMFs Removed)')
+    axes[2].set_xlabel('Time (hours)')
+    axes[2].set_ylabel('Power (kW)')
+    axes[2].grid(True, alpha=0.3)
+    axes[2].legend()
 
-plt.tight_layout()
-# plt.show() # Commented out for automated execution
+    plt.tight_layout()
+    # plt.show() # Commented out for automated execution
 
-# Calculate denoising metrics
-mse_original = np.mean((solar_signal - reconstructed_full)**2)
-mse_denoised = np.mean((solar_signal - denoised_signal)**2)
-snr_improvement = 10 * np.log10(mse_original / mse_denoised) if mse_denoised > 0 else np.inf
+    # Calculate denoising metrics
+    mse_original = np.mean((solar_signal - reconstructed_full)**2)
+    mse_denoised = np.mean((solar_signal - denoised_signal)**2)
+    snr_improvement = 10 * np.log10(mse_original / mse_denoised) if mse_denoised > 0 else np.inf
 
-print(f"\nDenoising Results:")
-print(f"Original reconstruction MSE: {mse_original:.6f}")
-print(f"Denoised reconstruction MSE: {mse_denoised:.6f}")
-print(f"SNR improvement: {snr_improvement:.2f} dB")
-print(f"Removed {len(noise_indices)} noise IMFs out of {len(imfs)} total IMFs")
+    print(f"\nDenoising Results:")
+    print(f"Original reconstruction MSE: {mse_original:.6f}")
+    print(f"Denoised reconstruction MSE: {mse_denoised:.6f}")
+    print(f"SNR improvement: {snr_improvement:.2f} dB")
+    print(f"Removed {len(noise_indices)} noise IMFs out of {len(imfs)} total IMFs")
 
 
 # ## 5. Prepare Data for Model Training
@@ -648,63 +652,64 @@ def prepare_decomposed_datasets(data, target_col='solar_power', window_size=24,
 
 
 # Prepare training data for the solar dataset
-print("Preparing solar dataset for training...")
-solar_prepared = prepare_decomposed_datasets(
-    solar_data, 
-    window_size=24, 
-    forecast_horizon=6
-)
+if __name__ == '__main__':
+    print("Preparing solar dataset for training...")
+    solar_prepared = prepare_decomposed_datasets(
+        solar_data,
+        window_size=24,
+        forecast_horizon=6
+    )
 
-# For compatibility with subsequent notebooks, assign to gefcom_prepared and alibaba_prepared
-gefcom_prepared = solar_prepared
-alibaba_prepared = solar_prepared
+    # For compatibility with subsequent notebooks, assign to gefcom_prepared and alibaba_prepared
+    gefcom_prepared = solar_prepared
+    alibaba_prepared = solar_prepared
 
-print(f"\nSolar dataset prepared:")
-print(f"Number of signal IMFs: {len(solar_prepared['imf_datasets'])}")
-for i, dataset in enumerate(solar_prepared['imf_datasets']):
-    print(f"  IMF {dataset['imf_index']}: X shape {dataset['X'].shape}, y shape {dataset['y'].shape}")
+    print(f"\nSolar dataset prepared:")
+    print(f"Number of signal IMFs: {len(solar_prepared['imf_datasets'])}")
+    for i, dataset in enumerate(solar_prepared['imf_datasets']):
+        print(f"  IMF {dataset['imf_index']}: X shape {dataset['X'].shape}, y shape {dataset['y'].shape}")
 
-# Save prepared data
-import pickle
+    # Save prepared data
+    import pickle
 
-with open('gefcom_prepared_data.pkl', 'wb') as f:
-    pickle.dump(gefcom_prepared, f)
+    with open('gefcom_prepared_data.pkl', 'wb') as f:
+        pickle.dump(gefcom_prepared, f)
 
-with open('alibaba_prepared_data.pkl', 'wb') as f:
-    pickle.dump(alibaba_prepared, f)
+    with open('alibaba_prepared_data.pkl', 'wb') as f:
+        pickle.dump(alibaba_prepared, f)
 
-print("\nPrepared datasets saved to pickle files.")
-print("Ready for model training in the next notebook!")
-
-
-# In[11]:
+    print("\nPrepared datasets saved to pickle files.")
+    print("Ready for model training in the next notebook!")
 
 
-# Summary of data preparation
-print("=" * 60)
-print("DATA PREPARATION SUMMARY")
-print("=" * 60)
+    # In[11]:
 
-print(f"\n1. DATASET LOADED:")
-print(f"   - data_udata_solar.csv: {solar_data.shape[0]} samples")
-print(f"   - Features: {list(solar_data.columns)}")
 
-print(f"\n2. EEMD DECOMPOSITION:")
-print(f"   - Total IMFs extracted: {len(imfs)}")
-print(f"   - Signal IMFs identified: {len(solar_prepared['imf_datasets'])}")
-print(f"   - Noise IMFs removed: {len(imfs) - len(solar_prepared['imf_datasets'])}")
+    # Summary of data preparation
+    print("=" * 60)
+    print("DATA PREPARATION SUMMARY")
+    print("=" * 60)
 
-print(f"\n3. TRAINING DATA PREPARATION:")
-print(f"   - Window size: {solar_prepared['window_size']} hours")
-print(f"   - Forecast horizon: {solar_prepared['forecast_horizon']} hours")
-print(f"   - Input features per sample: {solar_prepared['imf_datasets'][0]['X'].shape[1]}")
-print(f"   - Total training samples: {sum(len(d['X']) for d in solar_prepared['imf_datasets'])}")
+    print(f"\n1. DATASET LOADED:")
+    print(f"   - data_udata_solar.csv: {solar_data.shape[0]} samples")
+    print(f"   - Features: {list(solar_data.columns)}")
 
-print(f"\n4. NEXT STEPS:")
-print(f"   - Run 02_TCN_GRU_Architecture_Training.ipynb to train models")
-print(f"   - Run 03_Evaluation_Results_Analysis_Fixed.ipynb for evaluation")
+    print(f"\n2. EEMD DECOMPOSITION:")
+    print(f"   - Total IMFs extracted: {len(imfs)}")
+    print(f"   - Signal IMFs identified: {len(solar_prepared['imf_datasets'])}")
+    print(f"   - Noise IMFs removed: {len(imfs) - len(solar_prepared['imf_datasets'])}")
 
-print("\n" + "="*60)
-print("✅ Data loading and preparation completed successfully!")
-print("✅ EEMD decomposition working properly!")
-print("✅ Ready to proceed with model training!")
+    print(f"\n3. TRAINING DATA PREPARATION:")
+    print(f"   - Window size: {solar_prepared['window_size']} hours")
+    print(f"   - Forecast horizon: {solar_prepared['forecast_horizon']} hours")
+    print(f"   - Input features per sample: {solar_prepared['imf_datasets'][0]['X'].shape[1]}")
+    print(f"   - Total training samples: {sum(len(d['X']) for d in solar_prepared['imf_datasets'])}")
+
+    print(f"\n4. NEXT STEPS:")
+    print(f"   - Run 02_TCN_GRU_Architecture_Training.ipynb to train models")
+    print(f"   - Run 03_Evaluation_Results_Analysis_Fixed.ipynb for evaluation")
+
+    print("\n" + "="*60)
+    print("✅ Data loading and preparation completed successfully!")
+    print("✅ EEMD decomposition working properly!")
+    print("✅ Ready to proceed with model training!")
